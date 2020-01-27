@@ -1,0 +1,5 @@
+firefox
+iterm2
+microsoft-edge
+spotify
+visual-studio-code
