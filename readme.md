@@ -20,7 +20,7 @@ Safekeeping your shell configuration for setting up easily later
 ### Programming Support
 - [nvm (Node)](https://github.com/nvm-sh/nvm)
 - [pyenv (Python)](https://github.com/pyenv/pyenv)
-- [netcore (.NET Core)](https://github.com/dotnet/core)
+- [netcore (.NET Core)](https://github.com/dotnet/core) 
 
 ### Helpers and Goodies
 - [direnv](https://github.com/direnv/direnv)
@@ -42,6 +42,8 @@ You require these:
 - wget
 - git
 
+> Note: For installing packages,  you'll also require a package manager. On Linux, cli-config  uses `apt`. For macOS, `brew` should be installed.
+
 To check if you have eveything installed
 
 ```zsh
@@ -58,6 +60,8 @@ should give you the path to all the four executables, like so:
 /usr/bin/git
 ```
 
+> CAUTION: Running the setup without these requirements will result in unknown consequences.
+
 ## Setup
 
 ### 1. Clone the repo (use ssh if you fancy)
@@ -66,6 +70,23 @@ git clone http://github.com/mrsauravsahu/cli-config
 ```
 
 ### 2. Execute the setup script
+
+> Before starting install, you can turn off some program installs if you don't use them. Programs installs turned off by default: .NET Core.
+>
+> Comment out programs you don't want to use in setup.sh 
+```bash
+...
+
+echo "\n\nCLI-CONFIG: Installing programs\n\n"
+. $CLI_CONFIG_ROOT/scripts/install.ohmyzsh.sh
+. $CLI_CONFIG_ROOT/scripts/install.nvm.sh
+. $CLI_CONFIG_ROOT/scripts/install.pyenv.sh
+# . $CLI_CONFIG_ROOT/scripts/install.dotnet.sh
+
+...
+```
+
+To start the setup, execute the setup.sh file.
 ```zsh
 ./<path-to-setup.sh>
 # example
