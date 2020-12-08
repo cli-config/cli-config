@@ -1,13 +1,14 @@
 # cli-config
 
-Safekeeping your shell configuration for setting up easily later
+Helping you setup your CLI experience easily. Some goodies for the ol' terminal.
+> New! 🎉: Setup apps and cool goodies on macOS with brew.
+>
+> Checkout the [extras](extras/setup.sh) script.
 
 ## Features
 - one script setup
 - works with Mac and Linux (Ubuntu)
 - adds lots of helper tools to the shell
-
-> Coming soon - restore apps from brew cask on Mac
 
 ---
 
