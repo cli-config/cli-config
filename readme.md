@@ -44,6 +44,8 @@ You require these:
 - wget
 - git
 
+Note: For Mac, you'll also require [homebrew](https://brew.sh/)
+
 > Note: For installing packages,  you'll also require a package manager. On Linux, cli-config  uses `apt`. For macOS, `brew` should be installed.
 
 To check if you have eveything installed
