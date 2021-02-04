@@ -17,12 +17,13 @@ source $CLI_CONFIG_ROOT/scripts/env.sh
 rm -rf "$CLI_CONFIG_ROOT/current" > /dev/null 2> /dev/null || true
 
 # Create installation folder not exists
+echo "\n\nCLI-CONFIG: Creating new installation location: $CLI_CONFIG_ROOT/current\n\n"
 mkdir current
+mkdir $CLI_CONFIG_TOOLS_LOCATION
 
 # Download antigen into src folder
 echo "\n\nCLI-CONFIG: Installing antigen plugin manager\n\n"
-curl -L git.io/antigen > $CLI_CONFIG_ROOT/current/antigen.zsh
-
+curl -L git.io/antigen > $CLI_CONFIG_TOOLS_LOCATION/antigen.zsh
 
 echo "\n\nCLI-CONFIG: Installing programs\n\n"
 # Note: Comment out any program that you don't want to be installed
