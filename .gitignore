@@ -12,3 +12,7 @@ programs
 current
 
 /playground
+
+*.DS_Store
+
+profiles/mrsauravsahu/*.gitconfig
