@@ -1,0 +1,9 @@
+{
+  "image": "ubuntu:20.04",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
+  "workspaceFolder": "/workspace",
+  "settings": {
+    "terminal.integrated.cwd": "/workspace",
+  },
+  "postCreateCommand": "apt update -y && apt install zsh git wget curl -y"
+}
