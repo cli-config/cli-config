@@ -22,7 +22,7 @@ git clone https://github.com/pyenv/pyenv-virtualenv.git $CLI_CONFIG_ROOT/current
 
 printf "\n\n# pyenv configuration\n" >> $CLI_CONFIG_PROGRAMS_CONF
 printf "export PYENV_ROOT="$CLI_CONFIG_ROOT/current/pyenv"\n" >> $CLI_CONFIG_PROGRAMS_CONF
-printf "export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"\n" >> $CLI_CONFIG_PROGRAMS_CONF
-printf "eval "\\$(pyenv init -)"\n" >> $CLI_CONFIG_PROGRAMS_CONF
+printf "export PATH="\$PYENV_ROOT/bin:\$PYENV_ROOT/shims:\$PATH"\n" >> $CLI_CONFIG_PROGRAMS_CONF
+printf "eval \"\$(pyenv init -)\"\n" >> $CLI_CONFIG_PROGRAMS_CONF
 printf "eval \"\$(pyenv virtualenv-init -)\"\n" >> $CLI_CONFIG_PROGRAMS_CONF
 printf "\n\n# --------" >> $CLI_CONFIG_PROGRAMS_CONF
