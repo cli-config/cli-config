@@ -3,6 +3,7 @@
 Helping you setup your CLI experience easily. Some goodies for the ol' terminal.
 
 ## What's new? 🎉
+- Fresh new installation experience, powered by [Bash oo Framework](https://github.com/niieani/bash-oo-framework).
 - Switch antigen themes with a single env variable `CLI_CONFIG_THEME`
 - Extra tools available for Linux as well! Check out the [package list](extras/apt-list.txt).
 - New extras package - [tmux](https://github.com/tmux/tmux/wiki)
@@ -71,8 +72,13 @@ should give you the path to all the four executables, like so:
 ## Setup
 
 ### 1. Clone the repo (use ssh if you fancy)
+
+Please note: Now that there's a submodule for [bash-oo-framework](https://github.com/niieani/bash-oo-framework), we need to pass the `--recurse-submodules` switch when cloning. 
+
 ```zsh
-git clone http://github.com/mrsauravsahu/cli-config
+git clone https://github.com/mrsauravsahu/cli-config.git \
+--recurse-submodules \
+--depth 1
 ```
 
 ### 2. Execute the setup script
