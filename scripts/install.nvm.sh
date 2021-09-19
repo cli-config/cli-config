@@ -1,6 +1,8 @@
-echo "CLI-CONFIG: Installing nvm\n\n"
+namespace cliConfig
 
-echo "\n\nCLI-CONFIG: Installing node.js with nvm\n\n"
+Log "CLI-CONFIG: Installing nvm"
+
+Log "CLI-CONFIG: Installing node.js with nvm"
 zsh -c "
 . $CLI_CONFIG_ROOT/scripts/env.sh
 # Load antigen
@@ -11,8 +13,9 @@ antigen apply
 nvm install --lts
 "
 
-echo "\n\n# nvm configuration" >> $CLI_CONFIG_PROGRAMS_CONF
-echo 'export NVM_DIR="$CLI_CONFIG_ROOT/current/nvm"' >> $CLI_CONFIG_PROGRAMS_CONF
+printf '\n\n# nvm configuration\n' >> $CLI_CONFIG_PROGRAMS_CONF
+printf 'export NVM_DIR="$CLI_CONFIG_ROOT/current/nvm"\n' >> $CLI_CONFIG_PROGRAMS_CONF
 
-echo "\n\n# add nvm to path" >> $CLI_CONFIG_PROGRAMS_CONF
-echo 'export PATH="$NVM_DIR:$PATH"' >> $CLI_CONFIG_PROGRAMS_CONF
+printf "\n\n# add nvm to path\n" >> $CLI_CONFIG_PROGRAMS_CONF
+printf 'export PATH="$NVM_DIR:$PATH"\n' >> $CLI_CONFIG_PROGRAMS_CONF
+printf '\n\n# --------' >> $CLI_CONFIG_PROGRAMS_CONF
