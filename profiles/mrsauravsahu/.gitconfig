@@ -1,0 +1,14 @@
+[init]
+    defaultBranch = cool
+
+[pull]
+    ff = only
+
+[includeIf "gitdir:~/.cli-config/"]
+    path = ~/.cli-config/profiles/mrsauravsahu/personal.gitconfig
+
+[includeIf "gitdir:~/Documents/personal/"]
+    path = ~/.cli-config/profiles/mrsauravsahu/personal.gitconfig
+
+[includeIf "gitdir:~/Documents/work/"]
+    path = ~/.cli-config/profiles/mrsauravsahu/work.gitconfig

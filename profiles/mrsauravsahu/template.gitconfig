@@ -1,0 +1,5 @@
+[user]
+    email = <email>
+
+[core]
+    sshCommand = ssh -i <path_to_ssh_private_key>

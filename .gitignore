@@ -16,5 +16,9 @@ current
 *.DS_Store
 
 profiles/mrsauravsahu/*.gitconfig
+!profiles/mrsauravsahu/template.gitconfig
+!profiles/mrsauravsahu/.gitconfig
 
 bash-oo-framework
+
+current*
