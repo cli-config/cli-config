@@ -8,7 +8,8 @@ antigen theme $CLI_CONFIG_THEME
 antigen bundle lukechilds/zsh-nvm
 antigen bundle zsh-users/zsh-autosuggestions
 # Doesn't work on Mac without direnv and autojump installed with brew
-antigen bundle ptavares/zsh-direnv
+# ptavares/zsh-direnv changed their default branch to main which broke antigen bundle - explicitly requesting main branch
+antigen bundle ptavares/zsh-direnv@main
 antigen bundle autojump
 antigen bundle zsh-users/zsh-syntax-highlighting
 
