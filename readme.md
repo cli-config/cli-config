@@ -67,43 +67,16 @@ should give you the path to all the four executables, like so:
 /usr/bin/git
 ```
 
-> CAUTION: Running the setup without these requirements will result in unknown consequences.
+> CAUTION: Running the setup without these requirements will result in unknown consequences. Even though it is highly unlikely, in the event of any issues, I shall not be held responsible for any issues that arise from using this project in a way that it is not intended to. However, I can help with any Github issues raised.
 
 ## Setup
 
-### 1. Clone the repo (use ssh if you fancy)
+Use the `init.sh` script to setup in a single step! You can visit the link - https://raw.githubusercontent.com/mrsauravsahu/cli-config/cool/init.sh to see its raw contents, which is just a git clone followed by calling the `setup.sh` script.
 
-Please note: Now that there's a submodule for [bash-oo-framework](https://github.com/niieani/bash-oo-framework), we need to pass the `--recurse-submodules` switch when cloning. 
-
-```zsh
-git clone https://github.com/mrsauravsahu/cli-config.git \
---recurse-submodules \
---depth 1
-```
-
-### 2. Execute the setup script
-
-> Before starting install, you can turn off some program installs if you don't use them. Programs installs turned off by default: .NET Core.
->
-> Comment out programs you don't want to use in setup.sh 
 ```bash
-...
-
-echo "\n\nCLI-CONFIG: Installing programs\n\n"
-. $CLI_CONFIG_ROOT/scripts/install.ohmyzsh.sh
-. $CLI_CONFIG_ROOT/scripts/install.nvm.sh
-. $CLI_CONFIG_ROOT/scripts/install.pyenv.sh
-# . $CLI_CONFIG_ROOT/scripts/install.dotnet.sh
-
-...
+wget -O- https://raw.githubusercontent.com/mrsauravsahu/cli-config/cool/init.sh | bash
 ```
-
-To start the setup, execute the setup.sh file.
-```bash
-./<path-to-setup.sh>
-# example
-~/Documents/code/personal/config/setup.sh
-```
+This will create a folder called `cli-config` inside the current folder and installation will happen there.
 
 ## Using cli-config
 
