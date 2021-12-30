@@ -1,13 +1,8 @@
-brave-browser
 caffeine
 docker
-firefox
-gimp
 graphiql
 iterm2
-kitematic
 microsoft-edge
-multipass
 postman
 rar
 rectangle
@@ -15,6 +10,5 @@ responsively
 spotify
 stoplight-studio
 tableplus
-timer
 visual-studio-code
 vlc

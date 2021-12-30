@@ -50,9 +50,19 @@ if [ $currentOs = "Linux" ]; then
     # Log 'You are on linux'
     # TODO: check if we are specifically on Ubuntu
     . $CLI_CONFIG_ROOT/scripts/os-specific-setup.ubuntu.sh
+
+    # set CLI_CONFIG_ROOT value in.zshrc files in profiles
+    for i in `find $CLI_CONFIG_ROOT/profiles | grep .zshrc$`; do
+        sed -i $SED_OPTIONS "s|CLI_CONFIG_ROOT=\`pwd\`|CLI_CONFIG_ROOT=$CLI_CONFIG_ROOT|" $i
+    done
 elif [ $currentOs = "Darwin" ]; then
     # Log 'Mac huh'
     . $CLI_CONFIG_ROOT/scripts/os-specific-setup.darwin.sh
+
+    # set CLI_CONFIG_ROOT value in.zshrc files in profiles
+    for i in `find $CLI_CONFIG_ROOT/profiles | grep .zshrc$`; do
+        sed -i '' $SED_OPTIONS "s|CLI_CONFIG_ROOT=\`pwd\`|CLI_CONFIG_ROOT=$CLI_CONFIG_ROOT|" $i
+    done
 else
     Log 'what realm is this?'
 fi
@@ -65,7 +75,7 @@ zshPath=`which zsh`
 # set ~/.zshrc to default profile
 (rm ~/.zshrc ~/.zshrc.zwc 2> /dev/null || true) && ln -s $CLI_CONFIG_ROOT/profiles/default/.zshrc ~/.zshrc
 
-printf "\n\n\n"
+echo
 echo "$(UI.Color.Blue)CLI-CONFIG Installation complete! $(UI.Powerline.ThumbsUp)"
 echo "$(UI.Color.Default)$(UI.Powerline.OK)$(UI.Color.Blue) You are using cli-config now!"
 echo "$(UI.Color.Default)$(UI.Powerline.OK)$(UI.Color.Blue) Symlinked ~/.zshrc to default cli-config profile."
