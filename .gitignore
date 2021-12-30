@@ -6,8 +6,6 @@
 # directory where you can install programs manually
 programs
 
-*conf.sh
-
 # ignore current installation
 current
 

@@ -59,12 +59,16 @@ fi
 
 # generate main config script
 echo >> $CLI_CONFIG_PROGRAMS_CONF
-cat $CLI_CONFIG_ROOT/templates/main-config.sh >> $CLI_CONFIG_PROGRAMS_CONF
+cat $CLI_CONFIG_ROOT/templates/programs.conf.sh >> $CLI_CONFIG_PROGRAMS_CONF
 
-echo "$(UI.Powerline.OK) $(UI.Color.Blue)You are ready to use cli-config now"
-printf "\n"
 zshPath=`which zsh`
-printf "Note: Your default shell should be '$zshPath'. You can change the default shell with chsh\n"
-printf "Paste this in your .zshrc \n\nCLI_CONFIG_ROOT='$CLI_CONFIG_ROOT'\nsource \"\$CLI_CONFIG_ROOT/main.sh\"\n\n\n"
-printf "And restart your shell\n\n"
-echo "Enjoy! $(UI.Powerline.Heart) - Saurav $(UI.Color.Default)"
+# set ~/.zshrc to default profile
+(rm ~/.zshrc ~/.zshrc.zwc 2> /dev/null || true) && ln -s $CLI_CONFIG_ROOT/profiles/default/.zshrc ~/.zshrc
+
+printf "\n\n\n"
+echo "$(UI.Color.Blue)CLI-CONFIG Installation complete! $(UI.Powerline.ThumbsUp)"
+echo "$(UI.Color.Default)$(UI.Powerline.OK)$(UI.Color.Blue) You are using cli-config now!"
+echo "$(UI.Color.Default)$(UI.Powerline.OK)$(UI.Color.Blue) Symlinked ~/.zshrc to default cli-config profile."
+echo "$(UI.Color.Default)$(UI.Powerline.ArrowRight)$(UI.Color.Blue) Note: Your default shell should be '$zshPath'. (Use chsh to change it)"
+
+printf "\n\nEnjoy! Made with $(UI.Powerline.Heart)\n- Saurav $(UI.Color.Default)\n"
