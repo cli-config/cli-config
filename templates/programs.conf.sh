@@ -4,7 +4,6 @@ source $CLI_CONFIG_TOOLS_LOCATION/antigen.zsh
 # use antigen to setup the terminal
 antigen use oh-my-zsh
 antigen bundle mafredri/zsh-async
-antigen theme $CLI_CONFIG_THEME
 antigen bundle lukechilds/zsh-nvm
 antigen bundle zsh-users/zsh-autosuggestions
 # Doesn't work on Mac without direnv and autojump installed with brew

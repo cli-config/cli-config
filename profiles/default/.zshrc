@@ -1,12 +1,9 @@
 CLI_CONFIG_ROOT=`pwd`
+CLI_CONFIG_THEME='M365Princess'
 
 plugins=(git)
-
 export ZSH="$CLI_CONFIG_ROOT/current/ohmyzsh"
 source $ZSH/oh-my-zsh.sh
-
-# CLI-CONFIG customizations
-CLI_CONFIG_THEME='robbyrussell' # <-- change this to use a different antigen theme
 
 # loads cli-config env variables
 source $CLI_CONFIG_ROOT/scripts/env.sh
