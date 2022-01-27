@@ -48,3 +48,8 @@ alias cls=clear
 
 # configure thefuck
 eval $(thefuck --alias)
+
+# init all cli-config tools
+for tool in `ls -1 $CLI_CONFIG_CONF_LOCATION`; do
+  . $CLI_CONFIG_CONF_LOCATION/$tool
+done

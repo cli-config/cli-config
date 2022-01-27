@@ -1,5 +1,7 @@
 namespace cliConfig
 
+TOOL=nvm
+CONF=$CLI_CONFIG_CONF_LOCATION/$TOOL.conf.sh
 
 if [ -d "$CLI_CONFIG_ROOT/current/nvm" ]; then
     Log 'CLI-CONFIG: Seems cli-config/nvm is already installed!'
@@ -15,11 +17,9 @@ else
     . $NVM_DIR/nvm.sh
     nvm install --lts
 
-    printf '\n\n# nvm configuration\n' >> $CLI_CONFIG_PROGRAMS_CONF
-    printf 'export NVM_DIR="$CLI_CONFIG_ROOT/current/nvm"\n' >> $CLI_CONFIG_PROGRAMS_CONF
+    printf 'export NVM_DIR="$CLI_CONFIG_ROOT/current/nvm"\n' >> $CONF
 
-    printf "\n\n# add nvm to path\n" >> $CLI_CONFIG_PROGRAMS_CONF
-    printf 'export PATH="$NVM_DIR:$PATH"\n' >> $CLI_CONFIG_PROGRAMS_CONF
-    printf '. $NVM_DIR/nvm.sh\n' >> $CLI_CONFIG_PROGRAMS_CONF
-    printf '\n\n# --------' >> $CLI_CONFIG_PROGRAMS_CONF
+    printf "\n\n# add nvm to path\n" >> $CONF
+    printf 'export PATH="$NVM_DIR:$PATH"\n' >> $CONF
+    printf '. $NVM_DIR/nvm.sh\n' >> $CONF
 fi

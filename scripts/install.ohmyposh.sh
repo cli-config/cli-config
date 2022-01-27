@@ -1,5 +1,7 @@
 namespace cliConfig
 
+TOOL=ohmyposh
+CONF=$CLI_CONFIG_CONF_LOCATION/$TOOL.conf.sh
 INSTALL_DIR=$CLI_CONFIG_ROOT/current/ohmyposh
 
 if [ -d $INSTALL_DIR ]; then
@@ -15,7 +17,5 @@ else
     mv $INSTALL_DIR/themes-tmp/themes $INSTALL_DIR
     rm -rf $INSTALL_DIR/themes-tmp/
 
-    printf "\n\n# ohmyposh configuration\n" >> $CLI_CONFIG_PROGRAMS_CONF
-    printf 'eval "$($CLI_CONFIG_ROOT/current/ohmyposh/oh-my-posh --init --shell zsh --config $CLI_CONFIG_ROOT/current/ohmyposh/themes/$CLI_CONFIG_THEME.omp.json)"\n' >> $CLI_CONFIG_PROGRAMS_CONF
-    printf '\n\n# --------' >> $CLI_CONFIG_PROGRAMS_CONF
+    printf 'eval "$($CLI_CONFIG_ROOT/current/ohmyposh/oh-my-posh --init --shell zsh --config $CLI_CONFIG_ROOT/current/ohmyposh/themes/$CLI_CONFIG_THEME.omp.json)"\n' >> $CONF
 fi

@@ -1,5 +1,8 @@
 namespace cliConfig
 
+TOOL=pyenv
+CONF=$CLI_CONFIG_CONF_LOCATION/$TOOL.conf.sh
+
 if [ -d "$CLI_CONFIG_ROOT/current/pyenv" ]; then
     Log 'CLI-CONFIG: Seems cli-config/pyenv is already installed!'
 else
@@ -24,10 +27,8 @@ else
     Log "CLI-CONFIG: Installing pyenv virtualenv"
     git clone https://github.com/pyenv/pyenv-virtualenv.git $CLI_CONFIG_ROOT/current/pyenv/plugins/pyenv-virtualenv
 
-    printf "\n\n# pyenv configuration\n" >> $CLI_CONFIG_PROGRAMS_CONF
-    printf "export PYENV_ROOT="$CLI_CONFIG_ROOT/current/pyenv"\n" >> $CLI_CONFIG_PROGRAMS_CONF
-    printf "export PATH="\$PYENV_ROOT/bin:\$PYENV_ROOT/shims:\$PATH"\n" >> $CLI_CONFIG_PROGRAMS_CONF
-    printf "eval \"\$(pyenv init -)\"\n" >> $CLI_CONFIG_PROGRAMS_CONF
-    printf "eval \"\$(pyenv virtualenv-init -)\"\n" >> $CLI_CONFIG_PROGRAMS_CONF
-    printf "\n\n# --------" >> $CLI_CONFIG_PROGRAMS_CONF
+    printf "export PYENV_ROOT="$CLI_CONFIG_ROOT/current/pyenv"\n" >> $CONF
+    printf "export PATH="\$PYENV_ROOT/bin:\$PYENV_ROOT/shims:\$PATH"\n" >> $CONF
+    printf "eval \"\$(pyenv init -)\"\n" >> $CONF
+    printf "eval \"\$(pyenv virtualenv-init -)\"\n" >> $CONF
 fi
