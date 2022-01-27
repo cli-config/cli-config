@@ -74,10 +74,10 @@ should give you the path to all the four executables, like so:
 
 ## Setup
 
-Use the `init.sh` script to setup in a single step! You can visit the link - https://raw.githubusercontent.com/mrsauravsahu/cli-config/cool/init.sh to see its raw contents, which is just a git clone followed by calling the `setup.sh` script.
+Use the `init.sh` script to setup in a single step! You can visit the link - https://raw.githubusercontent.com/mrsauravsahu/cli-config/main/init.sh to see its raw contents, which is just a git clone followed by calling the `setup.sh` script.
 
 ```bash
-wget -O- https://raw.githubusercontent.com/mrsauravsahu/cli-config/cool/init.sh | bash
+wget -O- https://raw.githubusercontent.com/mrsauravsahu/cli-config/main/init.sh | bash
 ```
 This will create a folder called `cli-config` inside the current folder and installation will happen there.
 
