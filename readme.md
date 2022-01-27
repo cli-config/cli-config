@@ -3,6 +3,7 @@ Helping you setup your CLI experience easily. Some goodies for the ol' terminal.
 ![M365Princess theme](./assets/M365Princess.png)
 
 ## What's new? 🎉
+- Manage multiple terraform version with [tfenv](https://github.com/tfutils/tfenv).
 - Theming & Prompt customization support with [oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh).
 - Fresh new installation experience, powered by [Bash oo Framework](https://github.com/niieani/bash-oo-framework).
 - Switch antigen themes with a single env variable `CLI_CONFIG_THEME`
@@ -13,7 +14,7 @@ Helping you setup your CLI experience easily. Some goodies for the ol' terminal.
 
 ## Features
 - one script setup
-- works with Mac and Linux (Ubuntu) & Windows (WSL)
+- works with Mac and Linux (Ubuntu, Pop!_OS) & Windows (WSL)
 - adds lots of helper tools to the shell
 - easy theme switcher
 
@@ -27,9 +28,10 @@ Helping you setup your CLI experience easily. Some goodies for the ol' terminal.
 - [antigen](https://github.com/zsh-users/antigen) for more plugins 😉
 
 ### Programming Support
-- [nvm (Node)](https://github.com/nvm-sh/nvm)
-- [pyenv (Python)](https://github.com/pyenv/pyenv)
+- [nvm](https://github.com/nvm-sh/nvm) for managing multiple node versions
+- [pyenv](https://github.com/pyenv/pyenv) for multiple python versions
 - [dotnet](https://github.com/dotnet/core) 
+- [tfenv](https://github.com/tfutils/tfenv) manage multiple terraform versions
 
 ### Helpers and Goodies
 - [direnv](https://github.com/direnv/direnv)
