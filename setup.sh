@@ -1,16 +1,5 @@
 #!/usr/bin/env bash
 
-# READ OPTIONS
-# Todo: Move to separate file
-while [[ $# -gt 0 ]]; do
-    case $1 in
-        -c|--clean)
-            CCOPT_CLEAN=true
-            shift
-        ;;
-    esac
-done
-
 # SETUP WORKING DIRECTORY
 
 CI=true
@@ -29,6 +18,32 @@ CLI_CONFIG_ROOT=`pwd`
 import util/log
 namespace cliConfig
 Log::AddOutput cliConfig INFO
+
+# DEFAULT OPTIONS
+CCOPT_PROFILE=default
+
+# READ OPTIONS
+# Todo: Move to separate file
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -c|--clean)
+            CCOPT_CLEAN=true
+            shift
+        ;;
+        -p|--profile)
+            CCOPT_PROFILE=$2
+            
+            profiles=(`ls -1 $CLI_CONFIG_ROOT/profiles`)
+            if [[ ! " ${profiles[*]} " =~ " $CCOPT_PROFILE " ]]; then
+                Log "CLI-CONFIG: The specified profile '$CCOPT_PROFILE' does not exist."
+                exit
+            fi
+                
+
+            shift; shift
+
+    esac
+done
 
 # START INSTALL
 Log "CLI-CONFIG: Starting install... $(UI.Powerline.ThumbsUp)"
@@ -87,8 +102,8 @@ fi
 
 
 zshPath=`which zsh`
-# set ~/.zshrc to default profile
-(rm ~/.zshrc ~/.zshrc.zwc 2> /dev/null || true) && ln -s $CLI_CONFIG_ROOT/profiles/default/.zshrc ~/.zshrc
+# set ~/.zshrc to selected profile
+(rm ~/.zshrc ~/.zshrc.zwc 2> /dev/null || true) && ln -s $CLI_CONFIG_ROOT/profiles/$CCOPT_PROFILE/.zshrc ~/.zshrc
 
 echo
 echo "$(UI.Color.Blue)CLI-CONFIG Installation complete! $(UI.Powerline.ThumbsUp)"
