@@ -3,6 +3,8 @@ namespace cliConfig
 TOOL=pyenv
 CONF=$CLI_CONFIG_CONF_LOCATION/$TOOL.conf.sh
 
+DEFAULT_PYTHON_VERSION=3.10.2
+
 if [ -d "$CLI_CONFIG_ROOT/current/pyenv" ]; then
     Log 'CLI-CONFIG: Seems cli-config/pyenv is already installed!'
 else
@@ -31,4 +33,9 @@ else
     printf "export PATH="\$PYENV_ROOT/bin:\$PYENV_ROOT/shims:\$PATH"\n" >> $CONF
     printf "eval \"\$(pyenv init -)\"\n" >> $CONF
     printf "eval \"\$(pyenv virtualenv-init -)\"\n" >> $CONF
+
+    Log "CLI-CONFIG: Installing python-$DEFAULT_PYTHON_VERSION with pyenv"
+    $CLI_CONFIG_PYENV_ROOT/bin/pyenv install $DEFAULT_PYTHON_VERSION
+    Log "CLI-CONFIG: Installing python-$DEFAULT_PYTHON_VERSION to be used globally"
+    $CLI_CONFIG_PYENV_ROOT/bin/pyenv global $DEFAULT_PYTHON_VERSION
 fi
