@@ -17,5 +17,6 @@ else
     mv $INSTALL_DIR/themes-tmp/themes $INSTALL_DIR
     rm -rf $INSTALL_DIR/themes-tmp/
 
+    echo -n > $CONF
     printf 'eval "$($CLI_CONFIG_ROOT/current/ohmyposh/oh-my-posh --init --shell zsh --config $CLI_CONFIG_ROOT/current/ohmyposh/themes/$CLI_CONFIG_THEME.omp.json)"\n' >> $CONF
 fi

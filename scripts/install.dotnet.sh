@@ -14,6 +14,7 @@ else
     wget -O $dotnetInstallerLocation https://dot.net/v1/dotnet-install.sh
     bash $dotnetInstallerLocation --install-dir $CLI_CONFIG_ROOT/current/dotnet --channel Current
 
+    echo -n > $CONF
     printf 'export DOTNET_ROOT="$CLI_CONFIG_ROOT/current/dotnet"\n' >> $CONF
     printf 'export PATH="$CLI_CONFIG_ROOT/current/dotnet:$PATH"\n' >> $CONF
 fi
