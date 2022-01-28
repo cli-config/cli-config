@@ -1,6 +1,11 @@
 # activate antigen
 source $CLI_CONFIG_TOOLS_LOCATION/antigen.zsh
 
+# init all cli-config tools
+for tool in `ls -1 $CLI_CONFIG_CONF_LOCATION`; do
+  . $CLI_CONFIG_CONF_LOCATION/$tool
+done
+
 # use antigen to setup the terminal
 antigen use oh-my-zsh
 antigen bundle mafredri/zsh-async
@@ -14,8 +19,6 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 # apply all antigen changes
 antigen apply
-
-export PATH=$NVM_DIR:$PATH
 
 # use current node LTS version with nvm
 # suppress output
@@ -48,8 +51,3 @@ alias cls=clear
 
 # configure thefuck
 eval $(thefuck --alias)
-
-# init all cli-config tools
-for tool in `ls -1 $CLI_CONFIG_CONF_LOCATION`; do
-  . $CLI_CONFIG_CONF_LOCATION/$tool
-done

@@ -21,6 +21,8 @@ Log::AddOutput cliConfig INFO
 
 # DEFAULT OPTIONS
 CCOPT_PROFILE=default
+CCOPT_NO_SUDO='sudo'
+CCOPT_DEBIAN_FRONTEND=''
 
 # READ OPTIONS
 # Todo: Move to separate file
@@ -38,10 +40,15 @@ while [[ $# -gt 0 ]]; do
                 Log "CLI-CONFIG: The specified profile '$CCOPT_PROFILE' does not exist."
                 exit
             fi
-                
-
             shift; shift
-
+        ;;
+        -n|--no-sudo)
+            CCOPT_NO_SUDO=''
+            shift
+        ;;
+        --ci)
+            CCOPT_DEBIAN_FRONTEND='DEBIAN_FRONTEND=noninteractive'
+            shift
     esac
 done
 

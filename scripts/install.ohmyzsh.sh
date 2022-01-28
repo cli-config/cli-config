@@ -8,7 +8,7 @@ if [ -d "$CLI_CONFIG_ROOT/current/ohmyzsh" ]; then
 else
     Log "CLI-CONFIG: Installing ohmyzsh"
 
-    curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | zsh -s -- --keep-zshrc
+    curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=$CLI_CONFIG_ROOT/current/ohmyzsh bash -s -- --keep-zshrc
 
     echo -n > $CONF
     printf 'export ZSH="$CLI_CONFIG_ROOT/current/ohmyzsh"\n' >> $CONF

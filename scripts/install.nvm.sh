@@ -12,7 +12,7 @@ else
     
     NVM_DIR=$CLI_CONFIG_ROOT/current/nvm
     mkdir $NVM_DIR
-    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | PROFILE=/dev/null NVM_DIR=$CLI_CONFIG_ROOT/current/nvm bash
 
     . $NVM_DIR/nvm.sh
     nvm install --lts

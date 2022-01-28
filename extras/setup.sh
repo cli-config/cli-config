@@ -13,7 +13,7 @@ CLI_CONFIG_EXTRAS_ROOT=`pwd`
 currentOs=`uname -s`
 if [ $currentOs = "Linux" ]; then
     echo "CLI-CONFIG: Installing apt packages"
-    sudo apt install --yes `cat $CLI_CONFIG_EXTRAS_ROOT/apt-list.txt | tr '\n' ' '`
+    sudo apt install --yes --no-install-recommends `cat $CLI_CONFIG_EXTRAS_ROOT/apt-list.txt | tr '\n' ' '`
 elif [ $currentOs = "Darwin" ]; then
     echo "CLI-CONFIG: Installing brew packages"
     cat $CLI_CONFIG_EXTRAS_ROOT/brew-list.txt | sed | xargs brew install 

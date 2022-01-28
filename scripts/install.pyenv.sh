@@ -19,7 +19,7 @@ else
     if [ $currentOs = "Linux" ]; then
         # TODO: check if we are specifically on Ubuntu
         Log "CLI-CONFIG: Setting up dependencies for pyenv"
-        cmd='sudo apt-get --yes install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev'
+        cmd="$CCOPT_DEBIAN_FRONTEND $CCOPT_NO_SUDO apt install --yes --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev"
         Log "CLI-CONFIG: $cmd"
         eval $cmd
     elif [ $currentOs = "Darwin" ]; then
