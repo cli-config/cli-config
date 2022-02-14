@@ -82,6 +82,7 @@ Log "CLI-CONFIG: Installing programs"
 . $CLI_CONFIG_ROOT/scripts/install.pyenv.sh
 . $CLI_CONFIG_ROOT/scripts/install.dotnet.sh
 . $CLI_CONFIG_ROOT/scripts/install.tfenv.sh
+. $CLI_CONFIG_ROOT/scripts/install.gvm.sh
 . $CLI_CONFIG_ROOT/scripts/setup.programs-conf.sh
 
 currentOs=`uname -s`
