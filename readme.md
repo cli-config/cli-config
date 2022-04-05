@@ -134,3 +134,74 @@ cat extras/modern-unix-brew-list.txt | sed | xargs brew install
 I'll try and add support for Linux soon along with an uninstall script :)
 
 \- Saurav!
+
+## Updating cli-config
+
+If you have already setup cli-config. It's also a good idea to keep things updated, or maybe you just want to get the latest goodies. This section will show you how to do that.
+
+1. Branch
+
+First of all, check if you're using on the `cool` or the `main` branch. Cli-config used to use `cool` as its default branch, but to maintain uniformity, moved to `main` branch. 
+
+Make sure you back up any changes you made to the repo.
+
+```bash
+# Fetch latest changes
+$ git fetch origin
+# Switch to main branch
+$ git checkout main
+```
+
+2. Submodules
+
+If you had installed cli-config a long time back, you also need update submodules. Cli-config uses [bash-oo-framework](https://github.com/niieani/bash-oo-framework) to give detailed logs about what is happening during install.
+
+```bash
+ $ git submodule update --init
+ $ git pull origin
+```
+
+3. Update bash
+
+bash-oo-framework requires an updated version of Bash to be installed. For some reason macOS comes with an ancient version. You can update bash using homebrew.
+
+```bash
+
+$ brew install bash <-- # try brew upgrade bash if this doesn't work
+# you should be on bash ^5, you can check bash version with this command
+$ bash --version
+GNU bash, version 5.1.16(1)-release (x86_64-apple-darwin20.6.0)
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+```
+
+4. Cleanup & optional installs
+
+You might not need all the things that cli-config installs. As of yet, there's no way to pass options to the `setup.sh` file to do so, but you can go ahead and comment out the tools which you don't want.
+
+Here, I'm commenting out go and terraform env install.
+
+```bash
+...
+Log "CLI-CONFIG: Installing programs"
+
+. $CLI_CONFIG_ROOT/scripts/install.antigen.sh
+. $CLI_CONFIG_ROOT/scripts/install.ohmyzsh.sh
+. $CLI_CONFIG_ROOT/scripts/install.ohmyposh.sh
+. $CLI_CONFIG_ROOT/scripts/install.nvm.sh
+. $CLI_CONFIG_ROOT/scripts/install.pyenv.sh
+. $CLI_CONFIG_ROOT/scripts/install.dotnet.sh
+# . $CLI_CONFIG_ROOT/scripts/install.tfenv.sh
+# . $CLI_CONFIG_ROOT/scripts/install.gvm.sh
+. $CLI_CONFIG_ROOT/scripts/setup.programs-conf.sh
+...
+
+```
+
+5. Run the setup again
+
+After thinking about it, I've decided that cli-config should retain the older installation even if you run `./setup.sh` multiple times. So, incase you want to reinstall any tool, you can delete that folder or the entire `current` folder before running setup again. (Example: If you want to reinstall nvm, delete the `current/nvm` folder and run `setup.sh` again)
+
+That's all. Raise issue and PRs!
+
+\-S
