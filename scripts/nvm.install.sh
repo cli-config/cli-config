@@ -16,10 +16,4 @@ else
 
     . $NVM_DIR/nvm.sh
     nvm install --lts
-
-    echo -n > $CONF
-    printf 'export NVM_DIR="$CLI_CONFIG_ROOT/current/nvm"\n' >> $CONF
-    printf "\n\n# add nvm to path\n" >> $CONF
-    printf 'export PATH="$NVM_DIR:$PATH"\n' >> $CONF
-    printf '. $NVM_DIR/nvm.sh\n' >> $CONF
 fi

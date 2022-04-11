@@ -31,10 +31,4 @@ else
     gvm install $DEFAULT_GO_VERSION -B
     Log "CLI-CONFIG: Setting up $DEFAULT_GO_VERSION to be used globally"
     gvm use $DEFAULT_GO_VERSION --default
-
-    echo -n > $CONF
-    printf 'export GVM_DIR="$CLI_CONFIG_ROOT/current/gvm"\n' >> $CONF
-    printf "\n\n# add gvm to path\n" >> $CONF
-    printf 'export PATH="$GVM_DIR:$PATH"\n' >> $CONF
-    printf '. $GVM_DIR/scripts/gvm\n' >> $CONF
 fi
