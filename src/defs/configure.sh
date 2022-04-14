@@ -8,9 +8,9 @@ configure () {
     fi
 
     array programs=('antigen' 'ohmyzsh' 'ohmyposh' 'nvm' 'pyenv' 'dotnet' 'tfenv' 'gvm')
-    @get programs | array.forEach 'namespace cliConfig; Log "CLI-CONFIG: Updating configuration for cli-config/$item"; if [ -d "$CLI_CONFIG_ROOT/current/$item" ]; then . $CLI_CONFIG_ROOT/scripts/$item.configure.sh; fi'
+    @get programs | array.forEach 'namespace cliConfig; Log "CLI-CONFIG: Updating configuration for cli-config/$item"; if [ -d "$CLI_CONFIG_ROOT/current/$item" ]; then . $CLI_CONFIG_ROOT/src/scripts/$item.configure.sh; fi'
 
-    . $CLI_CONFIG_ROOT/scripts/setup.programs-conf.sh
+    . $CLI_CONFIG_ROOT/src/scripts/setup.programs-conf.sh
 
     echo "$(UI.Color.Blue)CLI-CONFIG: Configuration updated! $(UI.Powerline.ThumbsUp)"
 }
