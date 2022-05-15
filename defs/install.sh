@@ -61,7 +61,7 @@ install () {
 
     Log "CLI-CONFIG: Installing programs"
 
-    array programs=('antigen' 'ohmyzsh' 'ohmyposh' 'nvm' 'pyenv' 'dotnet' 'tfenv' 'gvm')
+    array programs=('antigen' 'ohmyposh' 'nvm' 'pyenv' 'dotnet' 'tfenv' 'gvm')
     @get programs | array.forEach '. $CLI_CONFIG_ROOT/scripts/$item.install.sh && . $CLI_CONFIG_ROOT/scripts/$item.configure.sh'
     . $CLI_CONFIG_ROOT/scripts/setup.programs-conf.sh
 
