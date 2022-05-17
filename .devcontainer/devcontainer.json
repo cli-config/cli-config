@@ -1,9 +1,19 @@
 {
-  "image": "ubuntu:20.04",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
-  "workspaceFolder": "/workspace",
-  "settings": {
-    "terminal.integrated.cwd": "/workspace",
+  "build": {
+    "dockerfile": "./ubuntu.dockerfile",
+    "args": {
+      "UBUNTU_VERSION": "22.04"
+    }
   },
-  "postCreateCommand": "apt update -y && apt install zsh git wget curl -y"
+  "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=delegated",
+  "runArgs": [
+    "--tmpfs",
+    "/app/.git:uid=1000,gid=1000,noexec",
+    "--tmpfs",
+    "/app/current:uid=1000,gid=1000,exec"
+  ],
+  "workspaceFolder": "/app",
+  "settings": {
+    "terminal.integrated.cwd": "/app"
+  }
 }

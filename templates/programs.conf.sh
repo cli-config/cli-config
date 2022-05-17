@@ -2,7 +2,6 @@
 source $CLI_CONFIG_TOOLS_LOCATION/antigen.zsh
 
 # use antigen to setup the terminal
-
 antigen bundle qoomon/zsh-lazyload
 antigen bundle zsh-users/zsh-autosuggestions
 # Doesn't work on Mac without direnv and autojump installed with brew

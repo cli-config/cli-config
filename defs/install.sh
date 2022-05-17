@@ -54,10 +54,10 @@ install () {
     # Create installation folder if not exists
     if [ ! -d "$CLI_CONFIG_ROOT/current" ]; then
         Log "CLI-CONFIG: Creating new installation location: $(UI.Color.Blue)$CLI_CONFIG_ROOT/current$(UI.Color.Default)"
-        mkdir current
-        mkdir $CLI_CONFIG_TOOLS_LOCATION
-        mkdir $CLI_CONFIG_CONF_LOCATION
     fi
+
+    (mkdir $CLI_CONFIG_TOOLS_LOCATION > /dev/null 2>&1) || true
+    (mkdir $CLI_CONFIG_CONF_LOCATION > /dev/null 2>&1) || true
 
     Log "CLI-CONFIG: Installing programs"
 
@@ -90,7 +90,7 @@ install () {
 
     zshPath=`which zsh`
     # set ~/.zshrc to selected profile
-    (rm ~/.zshrc ~/.zshrc.zwc 2> /dev/null || true) && ln -s $CLI_CONFIG_ROOT/profiles/$CCOPT_PROFILE/.zshrc ~/.zshrc
+    (rm -f ~/.zshrc ~/.zshrc.zwc 2> /dev/null || true) && ln -s $CLI_CONFIG_ROOT/profiles/$CCOPT_PROFILE/.zshrc ~/.zshrc
 
     echo
     echo "$(UI.Color.Blue)CLI-CONFIG Installation complete! $(UI.Powerline.ThumbsUp)"

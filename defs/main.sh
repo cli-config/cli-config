@@ -9,7 +9,7 @@ main() {
         if [[ $mode == "" ]]; then
             echo -n "Mode not selected. "
         else 
-            echo -n "Invalid mode selected. "
+            echo -n "Invalid mode '$mode' selected. "
         fi
         echo "Supported modes: $(@get modes | array.toString ',')"
         printf "\nUsage\n\n"
