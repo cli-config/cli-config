@@ -22,6 +22,6 @@ import util/namedParameters
 namespace cliConfig
 Log::AddOutput cliConfig INFO
 
-. $CLI_CONFIG_ROOT/defs/main.sh 
+. $CLI_CONFIG_ROOT/src/defs/main.sh 
 
 main "$@"

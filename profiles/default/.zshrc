@@ -2,7 +2,7 @@ CLI_CONFIG_ROOT=`pwd`
 CLI_CONFIG_THEME='M365Princess'
 
 # loads cli-config env variables
-source $CLI_CONFIG_ROOT/scripts/env.sh
+source $CLI_CONFIG_ROOT/src/scripts/env.sh
 
 # runs the configuration for all installed programs
 source $CLI_CONFIG_PROGRAMS_CONF

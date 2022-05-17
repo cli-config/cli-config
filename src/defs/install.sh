@@ -5,6 +5,7 @@ install () {
     CCOPT_PROFILE=default
     CCOPT_NO_SUDO='sudo'
     CCOPT_DEBIAN_FRONTEND=''
+    CCOPT_TOOLS=('antigen' 'ohmyposh' 'nvm' 'pyenv' 'dotnet' 'tfenv' 'gvm')
 
     # READ OPTIONS
     # Todo: Move to separate file
@@ -16,18 +17,35 @@ install () {
             ;;
             -p|--profile)
                 profiles=(`ls -1 $CLI_CONFIG_ROOT/profiles`)
+                CCOPT_PROFILE=$2
                 if ! @get profiles | array.contains $CCOPT_PROFILE
                 then
                     echo -n "CLI-CONFIG: The specified profile '$CCOPT_PROFILE' does not exist. "
                     echo "Available profiles: $(@get profiles | array.toString ',')"
                     exit
                 fi
-                CCOPT_PROFILE=$2
                 shift; shift
             ;;
             -n|--no-sudo)
                 CCOPT_NO_SUDO=''
                 shift
+            ;;
+            -t|--tools)
+                array allowedPrograms=$(ls -1 $CLI_CONFIG_ROOT/src/installers | sed 's/\..*$//g' | sort | uniq)
+               
+                if [ "$2" == "" ]; then
+                    Log "\"-t|--tools\" No tool selected, skipping installation."
+                    exit
+                fi
+
+                CCOPT_TOOLS=(`echo $2 | sed 's/,/\n/g'`)
+                invalidPrograms=()
+                for program in "${CCOPT_TOOLS[@]}"; do (! test -f $CLI_CONFIG_ROOT/src/installers/${program}.install.sh) && invalidPrograms+=( $program ); done
+                if [ "${#invalidPrograms[@]}" -ne 0 ]; then
+                    Log "\"-t|--tools\" Found invalid tools, skipping installation - '$(@get invalidPrograms | array.toString ,)'"
+                    exit
+                fi
+                shift; shift
             ;;
             --ci)
                 CCOPT_DEBIAN_FRONTEND='DEBIAN_FRONTEND=noninteractive'
@@ -43,7 +61,7 @@ install () {
     Log "CLI-CONFIG: Starting install... $(UI.Powerline.ThumbsUp)"
 
     # load cli-config env variables
-    . $CLI_CONFIG_ROOT/scripts/env.sh
+    . $CLI_CONFIG_ROOT/src/scripts/env.sh
 
     # Try and clean old installation
     if [[ -n $CCOPT_CLEAN ]]; then
@@ -61,16 +79,15 @@ install () {
 
     Log "CLI-CONFIG: Installing programs"
 
-    array programs=('antigen' 'ohmyposh' 'nvm' 'pyenv' 'dotnet' 'tfenv' 'gvm')
-    @get programs | array.forEach '. $CLI_CONFIG_ROOT/scripts/$item.install.sh && . $CLI_CONFIG_ROOT/scripts/$item.configure.sh'
-    . $CLI_CONFIG_ROOT/scripts/setup.programs-conf.sh
+    @get CCOPT_TOOLS | array.forEach '. $CLI_CONFIG_ROOT/src/installers/$item.install.sh && . $CLI_CONFIG_ROOT/src/installers/$item.configure.sh'
+    . $CLI_CONFIG_ROOT/src/scripts/setup.programs-conf.sh
 
     currentOs=`uname -s`
     Log "CLI-CONFIG: Running OS specific settings..."
     if [ $currentOs = "Linux" ]; then
         # Log 'You are on linux'
         # TODO: check if we are specifically on Ubuntu
-        . $CLI_CONFIG_ROOT/scripts/os-specific-setup.ubuntu.sh
+        . $CLI_CONFIG_ROOT/src/scripts/os-specific-setup.ubuntu.sh
 
         # set CLI_CONFIG_ROOT value in.zshrc files in profiles
         for i in `find $CLI_CONFIG_ROOT/profiles | grep .zshrc$`; do
@@ -78,7 +95,7 @@ install () {
         done
     elif [ $currentOs = "Darwin" ]; then
         # Log 'Mac huh'
-        . $CLI_CONFIG_ROOT/scripts/os-specific-setup.darwin.sh
+        . $CLI_CONFIG_ROOT/src/scripts/os-specific-setup.darwin.sh
 
         # set CLI_CONFIG_ROOT value in.zshrc files in profiles
         for i in `find $CLI_CONFIG_ROOT/profiles | grep .zshrc$`; do
