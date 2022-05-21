@@ -11,6 +11,11 @@ install () {
     # Todo: Move to separate file
     while [[ $# -gt 0 ]]; do
         case $1 in
+            -h|--help)
+                . $CLI_CONFIG_ROOT/src/defs/usage.sh
+                usage
+                exit
+            ;;
             -c|--clean)
                 CCOPT_CLEAN=true
                 shift
