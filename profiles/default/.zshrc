@@ -1,5 +1,5 @@
-CLI_CONFIG_ROOT=`pwd`
-CLI_CONFIG_THEME='M365Princess'
+CLI_CONFIG_ROOT=$(ls -la ~/.zshrc | sed "s/^.*\->//" | awk -F '/' 'NF{NF-=3}1' 'OFS=/' | xargs)
+CLI_CONFIG_THEME='pure'
 
 # loads cli-config env variables
 source $CLI_CONFIG_ROOT/src/scripts/env.sh

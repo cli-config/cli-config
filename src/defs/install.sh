@@ -89,18 +89,9 @@ install () {
         # TODO: check if we are specifically on Ubuntu
         . $CLI_CONFIG_ROOT/src/scripts/os-specific-setup.ubuntu.sh
 
-        # set CLI_CONFIG_ROOT value in.zshrc files in profiles
-        for i in `find $CLI_CONFIG_ROOT/profiles | grep .zshrc$`; do
-            sed -i $SED_OPTIONS "s|CLI_CONFIG_ROOT=\`pwd\`|CLI_CONFIG_ROOT='$CLI_CONFIG_ROOT'|" $i
-        done
     elif [ $currentOs = "Darwin" ]; then
         # Log 'Mac huh'
         . $CLI_CONFIG_ROOT/src/scripts/os-specific-setup.darwin.sh
-
-        # set CLI_CONFIG_ROOT value in.zshrc files in profiles
-        for i in `find $CLI_CONFIG_ROOT/profiles | grep .zshrc$`; do
-            sed -i '' $SED_OPTIONS "s|CLI_CONFIG_ROOT=\`pwd\`|CLI_CONFIG_ROOT='$CLI_CONFIG_ROOT'|" $i
-        done
     else
         Log 'what realm is this?'
     fi
