@@ -5,8 +5,9 @@
       "UBUNTU_VERSION": "22.04"
     }
   },
-  "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=delegated",
   "runArgs": [
+    "-v",
+    "${localWorkspaceFolder}:/app",
     "--tmpfs",
     "/app/.git:uid=1000,gid=1000,noexec",
     "--tmpfs",
