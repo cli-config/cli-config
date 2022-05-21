@@ -16,6 +16,7 @@ current
 profiles/mrsauravsahu/*.gitconfig
 !profiles/mrsauravsahu/template.gitconfig
 !profiles/mrsauravsahu/.gitconfig
+profiles/*/secret*
 
 bash-oo-framework
 
