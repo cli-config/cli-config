@@ -123,25 +123,10 @@ License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 
 4. Cleanup & optional installs
 
-You might not need all the things that cli-config installs. As of yet, there's no way to pass options to the `setup.sh` file to do so, but you can go ahead and comment out the tools which you don't want.
-
-Here, I'm commenting out go and terraform env install.
-
+You might not need all the things that cli-config installs. To see the list of tools available pass the `--help` switch.
+You can pass the list of tools to install with the `-t` or `--tools` switch, like so
 ```bash
-...
-Log "CLI-CONFIG: Installing programs"
-
-. $CLI_CONFIG_ROOT/scripts/install.antigen.sh
-. $CLI_CONFIG_ROOT/scripts/install.ohmyzsh.sh
-. $CLI_CONFIG_ROOT/scripts/install.ohmyposh.sh
-. $CLI_CONFIG_ROOT/scripts/install.nvm.sh
-. $CLI_CONFIG_ROOT/scripts/install.pyenv.sh
-. $CLI_CONFIG_ROOT/scripts/install.dotnet.sh
-# . $CLI_CONFIG_ROOT/scripts/install.tfenv.sh
-# . $CLI_CONFIG_ROOT/scripts/install.gvm.sh
-. $CLI_CONFIG_ROOT/scripts/setup.programs-conf.sh
-...
-
+$ ./setup.sh install --tools antigen,nvm,ohmyposh
 ```
 
 5. Run the setup again
