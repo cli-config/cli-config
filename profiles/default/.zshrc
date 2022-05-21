@@ -6,15 +6,8 @@ source $CLI_CONFIG_ROOT/src/scripts/env.sh
 
 # runs the configuration for all installed programs
 source $CLI_CONFIG_PROGRAMS_CONF
+currentOs=`uname -s | tr 'A-Z' 'a-z'`
 
-currentOs=`uname -s`
-if [ $currentOs = 'Linux' ]; then
-    # linux specific customizations
-    # edit this section if you're on Linux
-    # alias example=echo
-elif [ $currentOs = "Darwin" ]; then
-    # mac specific customizations
-    # alias example=echo
-fi
-
-# customizations to run everytime
+# create a secret.linux.zshrc or secret.darwin.zshrc to run your customizations
+# this file will be ignored in source control
+source ${CLI_CONFIG_ROOT}/profiles/default/secret.${currentOs}.zshrc 2> /dev/null || true
