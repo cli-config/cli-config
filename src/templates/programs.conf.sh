@@ -6,5 +6,3 @@ for tool in `ls -1 $CLI_CONFIG_CONF_LOCATION | sort`; do . $CLI_CONFIG_CONF_LOCA
 # alias cls to clear
 alias cls=clear
 
-# configure thefuck
-eval "$(thefuck --alias)"
