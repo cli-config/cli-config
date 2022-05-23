@@ -1,6 +1,9 @@
 CLI_CONFIG_ROOT=$(ls -la ~/.zshrc | sed "s/^.*\->//" | awk -F '/' 'NF{NF-=3}1' 'OFS=/' | xargs)
 CLI_CONFIG_THEME='pure'
 
+# cleanup old zsh compiled files
+find ${CLI_CONFIG_ROOT}/current -type f -maxdepth 3 -regex '.*zwc$' | xargs rm
+
 # loads cli-config env variables
 source $CLI_CONFIG_ROOT/src/scripts/env.sh
 
