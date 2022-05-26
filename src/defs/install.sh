@@ -77,6 +77,7 @@ install () {
     # Create installation folder if not exists
     if [ ! -d "$CLI_CONFIG_ROOT/current" ]; then
         Log "CLI-CONFIG: Creating new installation location: $(UI.Color.Blue)$CLI_CONFIG_ROOT/current$(UI.Color.Default)"
+        (mkdir "$CLI_CONFIG_ROOT/current" > /dev/null 2>&1) || true
     fi
 
     (mkdir $CLI_CONFIG_TOOLS_LOCATION > /dev/null 2>&1) || true
