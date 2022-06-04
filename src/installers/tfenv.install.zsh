@@ -1,10 +1,10 @@
-namespace cliConfig
+
 
 if [ -d "$CLI_CONFIG_ROOT/current/tfenv" ]; then
-    Log 'CLI-CONFIG: Seems cli-config/tfenv is already installed!'
+    Log 'Seems cli-config/tfenv is already installed!'
 else
 
-    Log "CLI-CONFIG: Installing tfenv"
+    Log " Installing tfenv"
 
     CLI_CONFIG_TFENV_ROOT=$CLI_CONFIG_ROOT/current/tfenv
 

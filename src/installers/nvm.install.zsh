@@ -1,14 +1,11 @@
-namespace cliConfig
-
 TOOL=nvm
 CONF=$CLI_CONFIG_CONF_LOCATION/$TOOL.conf.sh
 
 if [ -d "$CLI_CONFIG_ROOT/current/nvm" ]; then
-    Log 'CLI-CONFIG: Seems cli-config/nvm is already installed!'
+    Log 'Seems cli-config/nvm is already installed!'
 else
-    Log "CLI-CONFIG: Installing nvm"
-
-    Log "CLI-CONFIG: Installing node.js with nvm"
+    Log "Installing nvm"
+    Log "Installing node.js with nvm"
     
     NVM_DIR=$CLI_CONFIG_ROOT/current/nvm
     mkdir $NVM_DIR

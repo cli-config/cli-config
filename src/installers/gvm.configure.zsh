@@ -1,4 +1,4 @@
-namespace cliConfig
+
 
 export GOROOT="${CLI_CONFIG_ROOT}/current/gvm"
 TOOL=gvm

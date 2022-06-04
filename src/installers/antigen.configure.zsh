@@ -1,4 +1,4 @@
-namespace cliConfig
+
 
 TOOL=antigen
 CONF=$CLI_CONFIG_CONF_LOCATION/$TOOL.conf.sh
