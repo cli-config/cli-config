@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-. $CLI_CONFIG_ROOT/src/defs/usage.sh
+. $CLI_CONFIG_ROOT/src/defs/usage.zsh
 . $CLI_CONFIG_ROOT/src/utils/log.zsh
 
 main() {
@@ -26,7 +26,7 @@ main() {
     else
         shift # <-- already read mode argument so shifting once
 
-        . $CLI_CONFIG_ROOT/src/defs/${mode}.sh
+        . $CLI_CONFIG_ROOT/src/defs/${mode}.zsh
         $mode "$@"
     fi
 }

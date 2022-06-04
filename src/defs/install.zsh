@@ -90,20 +90,20 @@ install () {
     Log "Installing programs"
 
     for tool in ${CCOPT_TOOLS[@]}; do
-        . ${CLI_CONFIG_ROOT}/src/installers/${tool}.install.sh && . ${CLI_CONFIG_ROOT}/src/installers/${tool}.configure.sh
+        . ${CLI_CONFIG_ROOT}/src/installers/${tool}.install.zsh && . ${CLI_CONFIG_ROOT}/src/installers/${tool}.configure.zsh
     done
-    . ${CLI_CONFIG_ROOT}/src/scripts/setup.programs-conf.sh
+    . ${CLI_CONFIG_ROOT}/src/scripts/setup.programs-conf.zsh
 
     currentOs=`uname -s`
     Log "Running OS specific settings..."
     if [ $currentOs = "Linux" ]; then
         # Log 'You are on linux'
         # TODO: check if we are specifically on Ubuntu
-        . $CLI_CONFIG_ROOT/src/scripts/os-specific-setup.ubuntu.sh
+        . $CLI_CONFIG_ROOT/src/scripts/os-specific-setup.ubuntu.zsh
 
     elif [ $currentOs = "Darwin" ]; then
         # Log 'Mac huh'
-        . $CLI_CONFIG_ROOT/src/scripts/os-specific-setup.darwin.sh
+        . $CLI_CONFIG_ROOT/src/scripts/os-specific-setup.darwin.zsh
     else
         Log 'what realm is this?'
     fi

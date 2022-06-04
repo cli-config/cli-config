@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
 
 Log() {
-	echo "[${CC_LOG_NAMESPACE}] $@"
+	echo "[${LOG_NAMESPACE}] $@"
 }
