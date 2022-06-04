@@ -14,7 +14,7 @@ install () {
     while [[ $# -gt 0 ]]; do
         case $1 in
             -h|--help)
-                . $CLI_CONFIG_ROOT/src/defs/usage.sh
+                . $CLI_CONFIG_ROOT/src/defs/usage.zsh
                 usage
                 exit
             ;;
@@ -47,7 +47,7 @@ install () {
                 CCOPT_TOOLS=(`echo $2 | sed 's/,/\n/g'`)
                 invalidPrograms=()
                 for program in "${CCOPT_TOOLS[@]}"; do
-                    (! test -f $CLI_CONFIG_ROOT/src/installers/${program}.install.sh) && invalidPrograms+=( $program );
+                    (! test -f $CLI_CONFIG_ROOT/src/installers/${program}.install.zsh) && invalidPrograms+=( $program );
                 done
 
                 if [ "${#invalidPrograms[@]}" -ne 0 ]; then
@@ -70,7 +70,7 @@ install () {
     Log "Starting install..."
 
     # load cli-config env variables
-    . $CLI_CONFIG_ROOT/src/scripts/env.sh
+    . $CLI_CONFIG_ROOT/src/scripts/env.zsh
 
     # Try and clean old installation
     if [[ -n $CCOPT_CLEAN ]]; then
