@@ -1,5 +1,3 @@
-namespace cliConfig
-
 export GOROOT="${CLI_CONFIG_ROOT}/current/gvm"
 TOOL=gvm
 CONF=$CLI_CONFIG_CONF_LOCATION/$TOOL.conf.sh

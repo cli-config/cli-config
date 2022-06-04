@@ -1,9 +1,7 @@
-namespace cliConfig
-
 if [ -d "$CLI_CONFIG_ROOT/current/dotnet" ]; then
-    Log 'CLI-CONFIG: Seems cli-config/dotnet is already installed!'
+    Log 'Seems cli-config/dotnet is already installed!'
 else
-    Log "CLI-CONFIG: Installing dotnet"
+    Log "Installing dotnet"
 
     mkdir $CLI_CONFIG_ROOT/current/dotnet
 

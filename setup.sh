@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # SETUP WORKING DIRECTORY
 CI=true
@@ -10,18 +10,9 @@ cd $CLI_CONFIG_ROOT
 # Convert CLI_CONFIG_ROOT to absolute path
 CLI_CONFIG_ROOT=`pwd`
 
-# SETUP DEPENDENCIES
-# setup bash-oo-framework
-. "$CLI_CONFIG_ROOT/bash-oo-framework/lib/oo-bootstrap.sh"
+. $CLI_CONFIG_ROOT/src/defs/main.zsh 
+. $CLI_CONFIG_ROOT/src/utils/log.zsh 
 
-import util/log
-import util/type
-import util/variable
-import util/namedParameters
-
-namespace cliConfig
-Log::AddOutput cliConfig INFO
-
-. $CLI_CONFIG_ROOT/src/defs/main.sh 
+LOG_NAMESPACE='cli-config'
 
 main "$@"
