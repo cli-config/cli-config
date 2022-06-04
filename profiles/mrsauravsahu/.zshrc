@@ -2,7 +2,7 @@ CLI_CONFIG_ROOT=$(ls -la ~/.zshrc | sed "s/^.*\->//" | awk -F '/' 'NF{NF-=3}1' '
 CLI_CONFIG_THEME='kali'
 
 # cleanup old zsh compiled files
-find ${CLI_CONFIG_ROOT}/current -type f -maxdepth 2 -regex '.*zwc$' | xargs rm
+find ${CLI_CONFIG_ROOT}/current -maxdepth 2 -type f -regex '.*zwc$' | xargs rm
 
 # loads cli-config env variables
 source $CLI_CONFIG_ROOT/src/scripts/env.sh
