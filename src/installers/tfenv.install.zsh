@@ -4,7 +4,7 @@ if [ -d "$CLI_CONFIG_ROOT/current/tfenv" ]; then
     Log 'Seems cli-config/tfenv is already installed!'
 else
 
-    Log " Installing tfenv"
+    Log "Installing tfenv"
 
     CLI_CONFIG_TFENV_ROOT=$CLI_CONFIG_ROOT/current/tfenv
 
