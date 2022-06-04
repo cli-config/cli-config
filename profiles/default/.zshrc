@@ -1,3 +1,6 @@
+# case insensitive matching
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 CLI_CONFIG_ROOT=$(ls -la ~/.zshrc | sed "s/^.*\->//" | awk -F '/' 'NF{NF-=3}1' 'OFS=/' | xargs)
 CLI_CONFIG_THEME='pure'
 
