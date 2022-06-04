@@ -9,7 +9,7 @@ CLI_CONFIG_THEME='kali'
 XARGS_OPTIONS=$(if [ "${currentOs}" = "linux" ]; then echo '--no-run-if-empty'; else echo ''; fi)
 
 # cleanup old zsh compiled files
-find ${CLI_CONFIG_ROOT}/current -type f -maxdepth 3 -regex '.*zwc$' | xargs ${XARGS_OPTIONS} rm
+find ${CLI_CONFIG_ROOT}/current -maxdepth 2 -type f -regex '.*zwc$' | xargs ${XARGS_OPTIONS} rm
 
 # loads cli-config env variables
 source $CLI_CONFIG_ROOT/src/scripts/env.sh
