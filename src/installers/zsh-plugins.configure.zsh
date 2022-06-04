@@ -1,5 +1,3 @@
-
-
 CONF=${CLI_CONFIG_ROOT}/current/conf/0-zsh-plugins.conf.sh
 
 defaultPlugins=(

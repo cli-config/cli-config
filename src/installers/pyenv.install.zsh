@@ -1,5 +1,3 @@
-
-
 DEFAULT_PYTHON_VERSION=3.10.2
 
 if [ -d "$CLI_CONFIG_ROOT/current/pyenv" ]; then
