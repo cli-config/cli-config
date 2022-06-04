@@ -2,9 +2,38 @@
 Helping you setup your CLI experience easily. Some goodies for the ol' terminal.
 ![M365Princess theme](./assets/M365Princess.png)
 
-## Install
+## getting started
 
-> Checkout [install.md](./install.md) for other methods of installation & more details.
+You'll require these:
+- zsh
+- curl
+- wget
+- git
+
+Note: For installing packages,  you'll also require a package manager. On Linux, cli-config  uses `apt`. For macOS, `brew` should be installed, which you can download from [homebrew](https://brew.sh/)'s website.
+
+
+To check if you have everything installed
+
+```zsh
+which zsh curl wget git
+```
+
+should give you the path to all the four executables, like so:
+
+```zsh
+❯ which zsh curl wget git
+/bin/zsh
+/usr/local/bin/curl
+/usr/local/bin/wget
+/usr/bin/git
+```
+
+> Caution: Running the setup without these requirements will result in unknown consequences. If you have any issues, please raise an issue so we can solve it.
+
+> Checkout [details.md](./details.md) for more details.
+
+## install
 
 Use the `init.sh` script to setup in a single step! You can visit the link - https://raw.githubusercontent.com/mrsauravsahu/cli-config/main/init.sh to see its raw contents, which is just a git clone followed by calling the `setup.sh` script.
 
