@@ -3,6 +3,7 @@
 . $CLI_CONFIG_ROOT/src/defs/usage.zsh
 . $CLI_CONFIG_ROOT/src/utils/log.zsh
 . $CLI_CONFIG_ROOT/src/defs/prereqs.zsh
+. $CLI_CONFIG_ROOT/src/utils/read-options.zsh
 
 main() {
   mode=$1
@@ -10,7 +11,7 @@ main() {
   prereqs "$@"
 
   # check if mode is valid
-  modes=('install' 'configure')
+  modes=('install' 'configure' 'remove')
   IS_MODE_VALID='false'
   for i in ${modes[@]}; do
     if [ "${i}" = "${mode}" ]; then
@@ -31,6 +32,7 @@ main() {
 
     . $CLI_CONFIG_ROOT/src/defs/${mode}.zsh
 
+    read_options "$@"
     $mode "$@"
   fi
 }
