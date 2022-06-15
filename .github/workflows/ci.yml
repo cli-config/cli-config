@@ -29,5 +29,5 @@ jobs:
           test_output=$(bash package.sh test)
           test_exit_code=$(echo $?)
           echo ${test_output}
-          exit {test_exit_code}
+          exit ${test_exit_code}
 
