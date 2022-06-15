@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: |
-          lint_output=$(docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/mnt" -w /mnt mvdan/shfmt:v3.5.1-alpine -i 2 -l -w src/**/*.zsh)
+          lint_output=$(bash package.sh lint)
           if [ "${lint_output}" != "" ]; then
             echo 'error linting following files'
             echo ${lint_output}
