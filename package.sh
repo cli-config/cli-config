@@ -15,11 +15,12 @@ package () {
       testsCount="${#tests[@]}"
 
       for ((i=0; i<${testsCount}; i++)); do
-        # echo test $i "${tests[$i]}"
         test_result=$(zsh -c "${tests[$i]}")
 
         if [ "${test_result}" != "${results[$i]}" ]; then
+          echo TEST FAILED: "zsh -c '${tests[$i]}'"
           echo "'${test_result}' != '${results[$i]}'"
+          echo
           ANY_TESTS_FAILED=1
         fi
       done
