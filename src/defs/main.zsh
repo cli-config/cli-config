@@ -2,10 +2,13 @@
 
 . $CLI_CONFIG_ROOT/src/defs/usage.zsh
 . $CLI_CONFIG_ROOT/src/utils/log.zsh
+. $CLI_CONFIG_ROOT/src/defs/prereqs.zsh
 
 main() {
     mode=$1
-    
+
+    prereqs "$@"
+
     # check if mode is valid
     modes=('install' 'configure')
     IS_MODE_VALID='false'
@@ -27,6 +30,7 @@ main() {
         shift # <-- already read mode argument so shifting once
 
         . $CLI_CONFIG_ROOT/src/defs/${mode}.zsh
+
         $mode "$@"
     fi
 }
