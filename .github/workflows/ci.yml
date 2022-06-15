@@ -23,5 +23,6 @@ jobs:
 
       - name: Run Tests
         run: |
-          bash package.sh test
+          test_output=$(bash package.sh test)
+          exit $(echo $?)
 
