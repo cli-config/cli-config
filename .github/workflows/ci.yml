@@ -12,6 +12,9 @@ jobs:
       - uses: actions/checkout@v1
         name: Checkout to PR Branch
 
+      - name: Setup Deps
+        run: apt update -y && apt install --no-install-recommends -y zsh
+
       - name: Lint Project
         run: |
           lint_output=$(bash package.sh lint)
