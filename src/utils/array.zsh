@@ -8,9 +8,7 @@ array_str() {
   len=${#arr[@]}
   # echo "arr='${arr[@]}' sep='${sep}' len='${len}'"
 
-  if [ "$(($len - 1))" = "1" ]; then
-    echo -n "${arr[1]}${sep}"
-  else
+  if [ "${len}" -gt "1" ]; then
     for i in {1..$(($len - 1))}; do
       echo -n "${arr[$i]}${sep}"
     done
