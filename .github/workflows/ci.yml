@@ -10,11 +10,23 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v1
-      - run: |
+        name: Checkout to PR Branch
+
+      - name: Setup Deps
+        run: sudo apt update -y && sudo apt install --no-install-recommends -y zsh
+
+      - name: Lint Project
+        run: |
           lint_output=$(bash package.sh lint)
           if [ "${lint_output}" != "" ]; then
             echo 'error linting following files'
             echo ${lint_output}
             exit 1
           fi
+
+      - name: Run Tests
+        run: |
+          bash package.sh test
+          test_exit_code=$(echo $?)
+          exit ${test_exit_code}
 
