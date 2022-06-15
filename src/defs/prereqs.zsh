@@ -6,15 +6,17 @@ prereqs() {
   missingRequirements=()
 
   for req in "${requirements[@]}"; do
-    if [ "$(which ${req} > /dev/null; echo $?)" = "1" ]; then
-      missingRequirements+=( $req )
+    if [ "$(
+      which ${req} >/dev/null
+      echo $?
+    )" = "1" ]; then
+      missingRequirements+=($req)
     fi
   done
 
   if [ "${#missingRequirements[@]}" -gt "0" ]; then
     echo -n "Aborting due to missing dependencies - "
-    echo `array_str ", " "${missingRequirements[@]}"`
+    echo $(array_str ", " "${missingRequirements[@]}")
     exit 1
   fi
 }
-

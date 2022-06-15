@@ -2,9 +2,9 @@
 
 . ${CLI_CONFIG_ROOT}/src/utils/array.zsh
 
-usage () {
+usage() {
   modes=('install' 'configure')
-  profiles=(`ls -1 "${CLI_CONFIG_ROOT}/profiles"`)
+  profiles=($(ls -1 "${CLI_CONFIG_ROOT}/profiles"))
 
   printf "\nCLI-CONFIG \n\n"
 
@@ -15,4 +15,3 @@ usage () {
   printf "[-p|--profile] ${profiles_str} "
   printf "[-t|--tools $(ls -1 $CLI_CONFIG_ROOT/src/installers | sed 's/\..*$//g' | sort | uniq | xargs | sed 's/ /,/g')]\n\n"
 }
-

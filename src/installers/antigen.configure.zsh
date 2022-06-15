@@ -1,8 +1,8 @@
 TOOL=antigen
 CONF=$CLI_CONFIG_CONF_LOCATION/$TOOL.conf.sh
 
-echo -n > $CONF
-tee $CONF > /dev/null <<EOF
+echo -n >$CONF
+tee $CONF >/dev/null <<EOF
 ADOTDIR=\${CLI_CONFIG_ROOT}/current/antigen
 source \${CLI_CONFIG_TOOLS_LOCATION}/antigen.zsh
 
