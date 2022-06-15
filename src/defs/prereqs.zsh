@@ -18,4 +18,3 @@ prereqs() {
   fi
 }
 
-prereqs
