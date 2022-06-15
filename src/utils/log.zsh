@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
 
 Log() {
-	echo "[${LOG_NAMESPACE}] $@"
+  echo "[${LOG_NAMESPACE}] $@"
 }
