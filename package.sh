@@ -15,7 +15,7 @@ package() {
       testsCount="${#tests[@]}"
 
       for ((i = 0; i < ${testsCount}; i++)); do
-        test_result=$(zsh -c "${tests[$i]}")
+        test_result=$(zsh -c "CLI_CONFIG_ROOT=$(pwd) ${tests[$i]}")
 
         if [ "${test_result}" != "${results[$i]}" ]; then
           echo TEST FAILED: "zsh -c '${tests[$i]}'"
