@@ -11,7 +11,7 @@ main() {
   prereqs "$@"
 
   # check if mode is valid
-  modes=('install' 'configure' 'remove')
+  modes=('install' 'configure' 'uninstall')
   IS_MODE_VALID='false'
   for i in ${modes[@]}; do
     if [ "${i}" = "${mode}" ]; then
