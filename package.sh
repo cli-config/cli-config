@@ -13,16 +13,22 @@ package() {
       . ${testFile}
 
       testsCount="${#tests[@]}"
+      TEST_PASSED=true
 
       for ((i = 0; i < ${testsCount}; i++)); do
-        test_result=$(zsh -c "CLI_CONFIG_ROOT=$(pwd) ${tests[$i]}")
+        test_result=$(zsh -c "CONSOLE='/dev/null'; CLI_CONFIG_ROOT='$(pwd)'; ${tests[$i]}")
+        echo
 
         if [ "${test_result}" != "${results[$i]}" ]; then
-          echo TEST FAILED: "zsh -c '${tests[$i]}'"
-          echo "'${test_result}' != '${results[$i]}'"
-          echo
+          echo -n "🙅‍♂️ "
+          TEST_PASSED=false
           ANY_TESTS_FAILED=1
+        else
+          echo -n "✅ "
         fi
+
+        echo "$ zsh -c \"CLI_CONFIG_ROOT=$(pwd) ${tests[$i]}\""
+        [ "${VERBOSE}" = '1' ] && [ "${TEST_PASSED}" == 'false' ] && echo "TEST FAILED: zsh -c '${tests[$i]}'" && echo "'${test_result}' != '${results[$i]}'"
       done
     done
 
