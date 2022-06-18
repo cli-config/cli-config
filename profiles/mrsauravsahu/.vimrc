@@ -2,7 +2,7 @@ syntax on
 
 set number
 
-" use spaeces instead of tabs
+" use spaces instead of tabs
 set tabstop=2 shiftwidth=2 expandtab
 
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -19,13 +19,21 @@ Plugin 'ledesmablt/vim-run'
 Plugin 'dense-analysis/ale'
 call vundle#end()
 
-" fzf.vim
-nnoremap <silent> <C-l> :Files <CR>
-nnoremap <silent> <C-p> :GFiles <CR>
-
 " show spaces
 set listchars=trail:·,lead:·
 set list
+
+" SHORTCUTS
+
+" vim-run
+nnoremap <silent> <C-x> :Run
+
+" formatting
+nnoremap <silent> <C-k><C-d> :gg=G <CR>
+
+" fzf.vim
+nnoremap <silent> <C-l> :Files <CR>
+nnoremap <silent> <C-p> :GFiles <CR>
 
 " UNUSED PLUGINS -- for now
 " Plugin 'scrooloose/nerdtree'
