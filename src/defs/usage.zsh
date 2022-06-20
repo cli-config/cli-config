@@ -11,7 +11,7 @@ usage() {
 
   modes_str=$(array_str ", " "${modes[@]}")
   profiles_str=$(array_str "/" "${profiles[@]}")
-  
+
   echo "./setup.sh <mode> [-p|--profile=profileName] [-t|--tools=tool1,tool2]"
   printf "\n\n"
   echo "mode: ${modes_str} "
