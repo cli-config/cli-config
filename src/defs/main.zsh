@@ -10,6 +10,7 @@ main() {
 
   prereqs "$@"
 
+  read_options "$@"
   # check if mode is valid
   modes=('install' 'configure' 'uninstall')
   IS_MODE_VALID='false'
@@ -20,10 +21,8 @@ main() {
   done
 
   if [ "${IS_MODE_VALID}" = 'false' ]; then
-    if [ "$mode" = "" ]; then
-      echo -n "Mode not selected. "
-    else
-      echo -n "Invalid mode '$mode' selected. "
+    if [ ! "$mode" = "" ]; then
+      echo "Invalid mode '$mode' selected. "
     fi
     usage
     exit
@@ -31,8 +30,6 @@ main() {
     shift # <-- already read mode argument so shifting once
 
     . $CLI_CONFIG_ROOT/src/defs/${mode}.zsh
-
-    read_options "$@"
     $mode "$@"
   fi
 }
