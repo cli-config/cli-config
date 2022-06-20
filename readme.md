@@ -35,7 +35,7 @@ should give you the path to all the four executables, like so:
 
 ## install
 
-Use the `init.sh` script to setup in a single step! You can visit the link - https://raw.githubusercontent.com/mrsauravsahu/cli-config/main/init.sh to see its raw contents, which is just a git clone followed by calling the `setup.sh` script.
+Use the `init.sh` script to setup in a single step! You can visit the link - https://raw.githubusercontent.com/mrsauravsahu/cli-config/main/init.sh to see its raw contents, which is just a git clone followed by calling the `cli-config` script.
 
 ```bash
 wget -O- https://raw.githubusercontent.com/mrsauravsahu/cli-config/main/init.sh | zsh -s -- -p default
