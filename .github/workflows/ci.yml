@@ -19,6 +19,7 @@ jobs:
         run: sudo apt update -y && sudo apt install --no-install-recommends -y zsh
 
       - name: Lint Project
+        continue-on-error: true
         run: |
           lint_output=$(bash package.sh lint)
           if [ "${lint_output}" != "" ]; then
