@@ -3,7 +3,7 @@
 typeset -A options=()
 
 Install() {
-  if [ -d "$CLI_CONFIG_ROOT/current/ohmyzsh" ]; then
+  if [ -d "${TOOL_DIR}" ]; then
     Log 'Seems cli-config/ohmyzsh is already installed!'
   else
     Log "Installing ohmyzsh"

@@ -5,13 +5,13 @@ typeset -A options=()
 Install() {
   DEFAULT_PYTHON_VERSION=3.10.2
 
-  if [ -d "$CLI_CONFIG_ROOT/current/pyenv" ]; then
+  if [ -d "${TOOL_DIR}" ]; then
     Log 'Seems cli-config/pyenv is already installed!'
   else
 
     Log "Installing pyenv"
 
-    CLI_CONFIG_PYENV_ROOT=$CLI_CONFIG_ROOT/current/pyenv
+    CLI_CONFIG_PYENV_ROOT=${TOOL_DIR}
 
     git clone --depth=1 https://github.com/pyenv/pyenv.git $CLI_CONFIG_PYENV_ROOT
 
@@ -27,7 +27,7 @@ Install() {
     fi
 
     Log "Installing pyenv virtualenv"
-    git clone https://github.com/pyenv/pyenv-virtualenv.git $CLI_CONFIG_ROOT/current/pyenv/plugins/pyenv-virtualenv
+    git clone https://github.com/pyenv/pyenv-virtualenv.git ${TOOL_DIR}/plugins/pyenv-virtualenv
 
     Log "Installing python-$DEFAULT_PYTHON_VERSION with pyenv"
     $CLI_CONFIG_PYENV_ROOT/bin/pyenv install $DEFAULT_PYTHON_VERSION

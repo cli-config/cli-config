@@ -3,11 +3,10 @@
 typeset -A options=()
 
 Install() {
-  if [ -d "$CLI_CONFIG_ROOT/current/${TOOL}" ]; then
+  if [ -d "${TOOL_DIR}" ]; then
     Log "Seems cli-config/${TOOL} is already installed!"
   else
     Log "Installing ${TOOL}"
-    TOOL_DIR=${CLI_CONFIG_ROOT}/current/${TOOL}
     mkdir ${TOOL_DIR}
   fi
 }
@@ -20,14 +19,14 @@ Configure() {
     "ohmyzsh/ohmyzsh plugins/git"
   )
 
-  mkdir -p ${CLI_CONFIG_ROOT}/current/zsh-plugins 2>/dev/null
+  mkdir -p ${TOOL_DIR} 2>/dev/null
 
   echo -n >$CONF
   for plugin in "${defaultPlugins[@]}"; do
     repo=$(echo $plugin | awk '{ print $1 }')
     folder=$(echo $plugin | awk '{ print $2 }')
 
-    repoPath=${CLI_CONFIG_ROOT}/current/zsh-plugins/${repo}
+    repoPath=${TOOL_DIR}/${repo}
     if [ ! -d "${repoPath}" ]; then
       git clone --depth=1 https://github.com/${repo} ${repoPath}
     fi

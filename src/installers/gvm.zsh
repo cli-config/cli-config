@@ -3,7 +3,7 @@
 typeset -A options=()
 
 Install() {
-  export GOROOT="${CLI_CONFIG_ROOT}/current/gvm"
+  export GOROOT="${TOOL_DIR}"
   DEFAULT_GO_VERSION=go1.17.7
 
   if [ -d "$CLI_CONFIG_ROOT/current/$TOOL" ]; then
