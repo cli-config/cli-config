@@ -1,10 +1,12 @@
 autojump
 bat
-eth-p/software/bat-extras
 direnv
+docker
+eth-p/software/bat-extras
 ffmpeg
+fzf
+lsd
 thefuck
+tmux
 tree
 wget
-yarn
-tmux
