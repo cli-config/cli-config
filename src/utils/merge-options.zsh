@@ -9,7 +9,7 @@ MergeOptions() {
   typeset -A modifiedOptions=()
   for key in "${(@k)currentOptions}";
   do
-    value="${currentOptions[key]}"
+    value="${currentOptions[$key]}"
     optionKey="${prefix}${key}"
     if [ ! "${(P)${optionKey}}" = "" ]; then
       modifiedOptions+=(${key} ${(P)${optionKey}})
