@@ -1,5 +1,5 @@
 typeset -A options=(
-DEFAULT_VERSION '1.2.3'
+  DEFAULT_VERSION '1.2.3'
 )
 
 if [ -d "$CLI_CONFIG_ROOT/current/tfenv" ]; then
