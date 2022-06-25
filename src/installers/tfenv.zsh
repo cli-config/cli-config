@@ -1,10 +1,10 @@
 . "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
 
-Install() {
-  typeset -A options=(
-    DEFAULT_VERSION '1.2.3'
-  )
+typeset -A options=(
+  DEFAULT_VERSION '1.2.3'
+)
 
+Install() {
   if [ -d "$CLI_CONFIG_ROOT/current/tfenv" ]; then
     Log 'Seems cli-config/tfenv is already installed!'
   else

@@ -1,5 +1,7 @@
 . "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
 
+typeset -A options=()
+
 Install() {
   TOOL=ohmyposh
   CONF=$CLI_CONFIG_CONF_LOCATION/$TOOL.conf.sh

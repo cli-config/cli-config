@@ -29,6 +29,7 @@ install() {
   for tool in ${CCOPT_TOOLS[@]}; do
     TOOL="$(echo ${tool} | tr 'a-z' '[:upper:]')"
     TOOL_PREFIX="CCOPT_${TOOL}_"
+    TOOL_DIR="${CLI_CONFIG_ROOT}/current/${tool}"
     CONF="${CLI_CONFIG_CONF_LOCATION}/${tool}.conf.sh"
     . ${CLI_CONFIG_ROOT}/src/installers/${tool}.zsh
     

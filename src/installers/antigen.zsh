@@ -1,5 +1,7 @@
 . "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
 
+typeset -A options=()
+
 Install() {
   if [ -d "$CLI_CONFIG_ROOT/current/antigen" ]; then
     Log 'Seems cli-config/tools/antigen is already installed!'

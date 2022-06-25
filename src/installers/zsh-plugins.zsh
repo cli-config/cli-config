@@ -1,5 +1,7 @@
 . "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
 
+typeset -A options=()
+
 Install() {
   TOOL='zsh-plugins'
 
