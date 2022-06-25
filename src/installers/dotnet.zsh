@@ -1,3 +1,5 @@
+. "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
+
 Install() {
   if [ -d "$CLI_CONFIG_ROOT/current/dotnet" ]; then
     Log 'Seems cli-config/dotnet is already installed!'

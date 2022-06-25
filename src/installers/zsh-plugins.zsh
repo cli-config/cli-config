@@ -1,3 +1,5 @@
+. "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
+
 Install() {
   TOOL='zsh-plugins'
 

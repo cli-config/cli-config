@@ -1,3 +1,5 @@
+. "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
+
 Install() {
   export GOROOT="${CLI_CONFIG_ROOT}/current/gvm"
   TOOL=gvm

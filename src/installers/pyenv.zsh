@@ -1,3 +1,5 @@
+. "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
+
 Install() {
   DEFAULT_PYTHON_VERSION=3.10.2
 

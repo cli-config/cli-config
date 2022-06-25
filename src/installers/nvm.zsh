@@ -1,3 +1,5 @@
+. "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
+
 Install() {
   typeset -A options=(
     DEFAULT_NODE_VERSION '--lts'

@@ -1,3 +1,5 @@
+. "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
+
 Install() {
   if [ -d "$CLI_CONFIG_ROOT/current/ohmyzsh" ]; then
     Log 'Seems cli-config/ohmyzsh is already installed!'
