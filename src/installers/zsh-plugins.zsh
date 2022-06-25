@@ -3,8 +3,6 @@
 typeset -A options=()
 
 Install() {
-  TOOL='zsh-plugins'
-
   if [ -d "$CLI_CONFIG_ROOT/current/${TOOL}" ]; then
     Log "Seems cli-config/${TOOL} is already installed!"
   else
@@ -15,8 +13,6 @@ Install() {
 }
 
 Configure() {
-  CONF=${CLI_CONFIG_ROOT}/current/conf/0-zsh-plugins.conf.sh
-
   defaultPlugins=(
     "qoomon/zsh-lazyload"
     "zsh-users/zsh-autosuggestions"

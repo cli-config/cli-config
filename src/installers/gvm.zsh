@@ -4,8 +4,6 @@ typeset -A options=()
 
 Install() {
   export GOROOT="${CLI_CONFIG_ROOT}/current/gvm"
-  TOOL=gvm
-  CONF=$CLI_CONFIG_CONF_LOCATION/$TOOL.conf.sh
   DEFAULT_GO_VERSION=go1.17.7
 
   if [ -d "$CLI_CONFIG_ROOT/current/$TOOL" ]; then
@@ -39,8 +37,6 @@ Install() {
 
 Configure() {
   export GOROOT="${CLI_CONFIG_ROOT}/current/gvm"
-  TOOL=gvm
-  CONF=$CLI_CONFIG_CONF_LOCATION/$TOOL.conf.sh
   DEFAULT_GO_VERSION=go1.17.7
 
   echo -n >$CONF

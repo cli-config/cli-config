@@ -3,8 +3,6 @@
 typeset -A options=()
 
 Install() {
-  TOOL=ohmyposh
-  CONF=$CLI_CONFIG_CONF_LOCATION/$TOOL.conf.sh
   INSTALL_DIR=$CLI_CONFIG_ROOT/current/ohmyposh
 
   if [ -d $INSTALL_DIR ]; then

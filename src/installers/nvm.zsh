@@ -7,6 +7,7 @@ Install() {
     DEFAULT_NODE_VERSION '--lts'
     EXTRA_LAZY_COMMANDS 'node npm npx'
   )
+
   echo "prefix \`${TOOL_PREFIX}\`"
   options=($(MergeOptions "${TOOL_PREFIX}" "${(@kv)options}"))
   if [ -d "$CLI_CONFIG_ROOT/current/nvm" ]; then
