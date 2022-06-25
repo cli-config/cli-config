@@ -27,8 +27,13 @@ install() {
   Log "Installing programs"
 
   for tool in ${CCOPT_TOOLS[@]}; do
-    . ${CLI_CONFIG_ROOT}/src/installers/${tool}.install.zsh && . ${CLI_CONFIG_ROOT}/src/installers/${tool}.configure.zsh
+    TOOL="$(echo ${tool} | tr 'a-z' '[:upper:]')"
+    TOOL_PREFIX="CCOPT_${TOOL}_"
+    CONF="${CLI_CONFIG_CONF_LOCATION}/${tool}.conf.sh"
+    . ${CLI_CONFIG_ROOT}/src/installers/${tool}.install.zsh
+    . ${CLI_CONFIG_ROOT}/src/installers/${tool}.configure.zsh
   done
+
   . ${CLI_CONFIG_ROOT}/src/scripts/setup.programs-conf.zsh
 
   currentOs=$(uname -s)

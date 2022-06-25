@@ -1,9 +1,9 @@
 read_options() {
   # DEFAULT OPTIONS
-  CCOPT_PROFILE=default
-  CCOPT_NO_SUDO='sudo'
-  CCOPT_DEBIAN_FRONTEND=''
-  CCOPT_TOOLS=('antigen' 'ohmyposh' 'nvm' 'pyenv' 'dotnet' 'tfenv' 'gvm')
+  export CCOPT_PROFILE=default
+  export CCOPT_NO_SUDO='sudo'
+  export CCOPT_DEBIAN_FRONTEND=''
+  export CCOPT_TOOLS=('antigen' 'ohmyposh' 'nvm' 'pyenv' 'dotnet' 'tfenv' 'gvm')
 
   # READ OPTIONS
   # Todo: Move to separate file
@@ -15,12 +15,12 @@ read_options() {
       exit
       ;;
     -c | --clean)
-      CCOPT_CLEAN=true
+      export CCOPT_CLEAN=true
       shift
       ;;
     -p | --profile)
       profiles=($(ls -1 $CLI_CONFIG_ROOT/profiles))
-      CCOPT_PROFILE=$2
+      export CCOPT_PROFILE=$2
       if [ "$(array_contains "$CCOPT_PROFILE" "${profiles[@]}")" = "false" ]; then
         echo "The specified profile '$CCOPT_PROFILE' does not exist. "
         echo "Available profiles: $(array_str ' | ' ${profiles[@]})"
@@ -30,7 +30,7 @@ read_options() {
       shift
       ;;
     -n | --no-sudo)
-      CCOPT_NO_SUDO=''
+      export CCOPT_NO_SUDO=''
       shift
       ;;
     -t | --tools)
@@ -41,7 +41,7 @@ read_options() {
         exit
       fi
 
-      CCOPT_TOOLS=($(echo $2 | sed 's/,/\n/g'))
+      export CCOPT_TOOLS=($(echo $2 | sed 's/,/\n/g'))
       invalidPrograms=()
       for program in "${CCOPT_TOOLS[@]}"; do
         (! test -f $CLI_CONFIG_ROOT/src/installers/${program}.install.zsh) && invalidPrograms+=($program)
@@ -55,11 +55,22 @@ read_options() {
       shift
       ;;
     --ci)
-      CCOPT_DEBIAN_FRONTEND='DEBIAN_FRONTEND=noninteractive'
+      export CCOPT_DEBIAN_FRONTEND='DEBIAN_FRONTEND=noninteractive'
       shift
       ;;
     *)
-      # Unrecognized option
+      # Tool specific options
+      optionKey="${1}"
+
+      if [ ! "$(echo "${optionKey}" | grep '^-')" ]; then
+        shift
+        continue
+      fi
+
+      optionKey="CCOPT_$(echo "${optionKey}" | sed -e 's/^\-*//' -e 's/\-/_/g' | tr 'a-z' '[:upper:]')"
+      optionValue="${2}"
+      export ${optionKey}="${optionValue}"
+      shift
       shift
       ;;
     esac
