@@ -1,6 +1,5 @@
 . "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
-
-typeset -A options=()
+. "${CLI_CONFIG_ROOT}/src/installers/${TOOL_LOWERED}.options.zsh"
 
 Install() {
   if [ -d ${TOOL_DIR} ]; then

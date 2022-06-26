@@ -1,8 +1,5 @@
 . "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
-
-typeset -A options=(
-  DEFAULT_GO_VERSION go1.18.3
-)
+. "${CLI_CONFIG_ROOT}/src/installers/${TOOL_LOWERED}.options.zsh"
 
 Install() {
   export GOROOT="${TOOL_DIR}"

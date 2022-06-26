@@ -1,9 +1,5 @@
 . "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
-
-typeset -A options=(
-  DEFAULT_NODE_VERSION '--lts'
-  EXTRA_LAZY_COMMANDS 'node npm npx'
-)
+. "${CLI_CONFIG_ROOT}/src/installers/${TOOL_LOWERED}.options.zsh"
 
 Install() {
   options=($(MergeOptions "${TOOL_PREFIX}" "${(@kv)options}"))
