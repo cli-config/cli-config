@@ -15,4 +15,8 @@ CLI_CONFIG_ROOT=$(pwd)
 
 LOG_NAMESPACE='cli-config'
 
+if [ "$(echo "${ZSH_ARGZERO}" | grep 'setup\.sh$' > /dev/null; echo $?)" = '0' ]; then
+  Log "INFO: setup.sh is deprecated and will be removed in the future. Use './cli-config' instead."
+fi
+
 main "$@"
