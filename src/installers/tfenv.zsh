@@ -11,8 +11,8 @@ Install() {
     CLI_CONFIG_TFENV_ROOT=${TOOL_DIR}
 
     git clone --depth=1 https://github.com/tfutils/tfenv.git $CLI_CONFIG_TFENV_ROOT
-    ${CLI_CONFIG_TFENV_ROOT}/bin/tfenv install ${options[DEFAULT_VERSION]}
-    ${CLI_CONFIG_TFENV_ROOT}/bin/tfenv use ${options[DEFAULT_VERSION]}
+    ${CLI_CONFIG_TFENV_ROOT}/bin/tfenv install ${options[TF_VERSION]}
+    ${CLI_CONFIG_TFENV_ROOT}/bin/tfenv use ${options[TF_VERSION]}
   fi
 }
 
