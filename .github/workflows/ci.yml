@@ -28,6 +28,11 @@ jobs:
             exit 1
           fi
 
+      - name: Sync setup.sh and cli-config
+        run: |
+           sync_output=$(diff cli-config setup.sh > /dev/null; echo $?)
+           exit $sync_output
+
       - name: Run Tests
         run: |
           bash package.sh test
