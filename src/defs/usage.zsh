@@ -20,7 +20,7 @@ usage() {
   printf "tools: ${tools_str}\n"
 
   for tool in "${tools[@]}"; do
-    . "${CLI_CONFIG_ROOT}/src/installers/${tool}.zsh"
+    . "${CLI_CONFIG_ROOT}/src/installers/${tool}.options.zsh"
     if [ ! "${#options[@]}" = "0" ]; then
       echo "  ${tool}"
       for key in "${(@k)options}"; do
