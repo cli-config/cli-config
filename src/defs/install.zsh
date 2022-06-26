@@ -33,7 +33,7 @@ install() {
     TOOL_DIR="${CLI_CONFIG_ROOT}/current/${tool}"
     CONF="${CLI_CONFIG_CONF_LOCATION}/${tool}.conf.sh"
     . ${CLI_CONFIG_ROOT}/src/installers/${tool}.zsh
-    
+
     Install
     Configure
   done
