@@ -24,7 +24,7 @@ usage() {
     if [ ! "${#options[@]}" = "0" ]; then
       echo "  ${tool}"
       for key in "${(@k)options}"; do
-        echo "    --$(echo $key | sed -e 's/_/-/g' | tr 'A-Z' '[:lower:]' )"
+        echo "    --${tool}-$(echo $key | sed -e 's/_/-/g' | tr 'A-Z' '[:lower:]' )"
       done
     fi
   done
