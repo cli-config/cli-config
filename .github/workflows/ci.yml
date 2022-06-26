@@ -31,6 +31,9 @@ jobs:
       - name: Sync setup.sh and cli-config
         run: |
            sync_output=$(diff cli-config setup.sh > /dev/null; echo $?)
+           if [ "${sync_output}" = "1" ]; then
+             diff cli-config setup.sh
+           fi
            exit $sync_output
 
       - name: Run Tests
