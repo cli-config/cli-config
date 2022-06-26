@@ -1,5 +1,4 @@
 caffeine
-docker
 graphiql
 iterm2
 microsoft-edge
