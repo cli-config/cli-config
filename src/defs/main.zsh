@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-. $CLI_CONFIG_ROOT/src/defs/usage.zsh
 . $CLI_CONFIG_ROOT/src/utils/log.zsh
+. $CLI_CONFIG_ROOT/src/defs/usage.zsh
 . $CLI_CONFIG_ROOT/src/defs/prereqs.zsh
-. $CLI_CONFIG_ROOT/src/utils/read-options.zsh
+. $CLI_CONFIG_ROOT/src/defs/read-options.zsh
 
 main() {
   mode=$1
