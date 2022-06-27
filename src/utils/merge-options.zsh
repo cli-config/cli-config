@@ -3,7 +3,7 @@
 MergeOptions() {
   prefix=${1}
   shift
-  
+
   typeset -A currentOptions=("$@")
 
   typeset -A modifiedOptions=()
@@ -18,5 +18,5 @@ MergeOptions() {
     fi
   done
   
-  echo "${(@kv)modifiedOptions[@]}"
+  printf "%s\n" "${(@kv)modifiedOptions[@]}"; echo
 }
