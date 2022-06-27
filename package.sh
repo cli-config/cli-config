@@ -10,25 +10,31 @@ package() {
   "test")
     for testFile in $(find __tests__ -regex '.*spec.zsh'); do
       ANY_TESTS_FAILED=0
+      results=''
+      tests=()
+      results=()
       . ${testFile}
 
       testsCount="${#tests[@]}"
       TEST_PASSED=true
 
-      for ((i = 0; i < ${testsCount}; i++)); do
+      if [ ! "${#tests[@]}" = '0' ]; then
+        echo "${testFile}"
+      fi
+
+      for ((i = 0; i < testsCount; i++)); do
         test_result=$(zsh -c "CONSOLE='/dev/null'; CLI_CONFIG_ROOT='$(pwd)'; ${tests[$i]}")
-        echo
 
         if [ "${test_result}" != "${results[$i]}" ]; then
-          echo -n "🙅‍♂️ "
+          echo -n "  🙅‍♂️ "
           TEST_PASSED=false
           ANY_TESTS_FAILED=1
         else
-          echo -n "✅ "
+          echo -n "  ✅ "
         fi
 
-        echo "$ zsh -c \"CLI_CONFIG_ROOT=$(pwd) ${tests[$i]}\""
-        [ "${VERBOSE}" = '1' ] && [ "${TEST_PASSED}" == 'false' ] && echo "TEST FAILED: zsh -c '${tests[$i]}'" && echo "'${test_result}' != '${results[$i]}'"
+        echo "$ zsh -c ${tests[$i]}\""
+        [ "${VERBOSE}" = '1' ] && [ "${TEST_PASSED}" == 'false' ] && echo "TEST FAILED: zsh -c '${tests[$i]}'" && diff <( echo "${test_result}" ) <( echo "${results[$i]}" ) | bat -l diff
       done
     done
 
