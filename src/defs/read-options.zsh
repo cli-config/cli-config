@@ -4,6 +4,7 @@ read_options() {
   export CCOPT_NO_SUDO='sudo'
   export CCOPT_DEBIAN_FRONTEND=''
   export CCOPT_TOOLS=('antigen' 'ohmyposh' 'nvm' 'pyenv' 'dotnet' 'tfenv' 'gvm')
+  export CCOPT_NO_CONFIRM=false
 
   # READ OPTIONS
   # Todo: Move to separate file
@@ -13,6 +14,9 @@ read_options() {
       . $CLI_CONFIG_ROOT/src/defs/usage.zsh
       usage
       exit
+      ;;
+    -y | --yes)
+      CCOPT_NO_CONFIRM=true
       ;;
     -c | --clean)
       export CCOPT_CLEAN=true
