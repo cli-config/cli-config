@@ -34,7 +34,7 @@ package() {
         fi
 
         echo "$ zsh -c ${tests[$i]}\""
-        [ "${VERBOSE}" = '1' ] && [ "${TEST_PASSED}" == 'false' ] && echo "TEST FAILED: zsh -c '${tests[$i]}'" && diff <( echo "${test_result}" ) <( echo "${results[$i]}" ) | bat -l diff
+        [ "${VERBOSE}" = '1' ] && [ "${TEST_PASSED}" == 'false' ] && echo "TEST FAILED: zsh -c '${tests[$i]}'" && diff <(echo "${test_result}") <(echo "${results[$i]}") | bat -l diff
       done
     done
 
