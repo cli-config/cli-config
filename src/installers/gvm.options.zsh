@@ -1,3 +1,4 @@
-typeset -A options=(
-  GO_VERSION go1.18.3
+typeset -A defaultOptions=(
+  GO_VERSION
+  go1.18.3
 )

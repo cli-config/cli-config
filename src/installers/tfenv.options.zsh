@@ -1,3 +1,4 @@
-typeset -A options=(
-  TF_VERSION '1.2.3'
+typeset -A defaultOptions=(
+  TF_VERSION
+  '1.2.3'
 )

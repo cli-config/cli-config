@@ -1,1 +1,1 @@
-typeset -A options=()
+typeset -A defaultOptions=()

@@ -1,6 +1,8 @@
 . "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
 . "${CLI_CONFIG_ROOT}/src/installers/${TOOL_LOWERED}.options.zsh"
 
+typeset -A options=(MergeOptions "${TOOL_PREFIX}" "${(@kv)defaultOptions[@]}")
+
 Install() {
   if [ -d "${TOOL_DIR}" ]; then
     Log 'Seems cli-config/dotnet is already installed!'

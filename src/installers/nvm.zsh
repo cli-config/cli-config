@@ -1,8 +1,9 @@
 . "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
 . "${CLI_CONFIG_ROOT}/src/installers/${TOOL_LOWERED}.options.zsh"
 
+typeset -A options=(MergeOptions "${TOOL_PREFIX}" "${(@kv)defaultOptions[@]}")
+
 Install() {
-  options=($(MergeOptions "${TOOL_PREFIX}" "${(@kv)options}"))
   if [ -d "$CLI_CONFIG_ROOT/current/nvm" ]; then
   Log 'Seems cli-config/nvm is already installed!'
   else
@@ -23,5 +24,5 @@ Configure() {
   printf 'export NVM_DIR="$CLI_CONFIG_ROOT/current/nvm"\n' >>$CONF
   printf "# add nvm to path\n" >>$CONF
   printf 'export PATH="$NVM_DIR:$PATH"\n' >>$CONF
-  printf 'lazyload nvm node npm -- "source $NVM_DIR/nvm.sh"' >>$CONF
+  printf "lazyload nvm node npm ${options[EXTRA_LAZY_COMMANDS]} -- \"source $NVM_DIR/nvm.sh\"" >>$CONF
 }

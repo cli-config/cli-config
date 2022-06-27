@@ -1,6 +1,8 @@
 . "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
 . "${CLI_CONFIG_ROOT}/src/installers/${TOOL_LOWERED}.options.zsh"
 
+typeset -A options=(MergeOptions "${TOOL_PREFIX}" "${(@kv)defaultOptions[@]}")
+
 Install() {
   DEFAULT_PYTHON_VERSION=3.10.2
 
