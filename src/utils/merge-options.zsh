@@ -2,21 +2,19 @@
 
 MergeOptions() {
   prefix=${1}
-  shift
+  source=${2}
+  dest=${3}
 
-  typeset -A currentOptions=("$@")
-
-  typeset -A modifiedOptions=()
-  for key in "${(@k)currentOptions}";
-  do
-    value="${currentOptions[$key]}"
+  for key in "${(@k)${(P)source}}"; do
     optionKey="${prefix}${key}"
-    if [ ! "${(P)${optionKey}}" = "" ]; then
-      modifiedOptions+=(${key} ${(P)${optionKey}})
+    if [ "${(P)optionKey}" = "" ]; then
+      defaultValue="${${(P)source}[$key]}"
+      typeset -A $dest
+      export "${dest}[$key]=$defaultValue"
     else
-      modifiedOptions+=(${key} ${value})
+      modifiedValue="${(P)optionKey}"
+      # https://stackoverflow.com/a/63473551/5640343
+      export "${dest}[$key]=$modifiedValue"
     fi
   done
-  
-  printf "%s\n" "${(@kv)modifiedOptions[@]}"; echo
 }
