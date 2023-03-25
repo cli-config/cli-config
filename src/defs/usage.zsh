@@ -21,9 +21,8 @@ usage() {
 
   for tool in "${tools[@]}"; do
     . "${CLI_CONFIG_ROOT}/src/installers/${tool}.options.zsh"
-    if [ ! "${#options[@]}" = "0" ]; then
-      echo "  ${tool}"
-      for key in "${(@k)options}"; do
+    if [ ! "${#defaultOptions[@]}" = "0" ]; then
+      for key in "${(@k)defaultOptions}"; do
         echo "    --${tool}-$(echo $key | sed -e 's/_/-/g' | tr 'A-Z' '[:lower:]' )"
       done
     fi
