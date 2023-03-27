@@ -22,8 +22,10 @@ usage() {
   for tool in "${tools[@]}"; do
     . "${CLI_CONFIG_ROOT}/src/installers/${tool}.options.zsh"
     if [ ! "${#defaultOptions[@]}" = "0" ]; then
+      echo
       for key in "${(@k)defaultOptions}"; do
-        echo "    --${tool}-$(echo $key | sed -e 's/_/-/g' | tr 'A-Z' '[:lower:]' )"
+        echo -n "    --${tool}-$(echo $key | sed -e 's/_/-/g' | tr 'A-Z' '[:lower:]' )"
+        echo " -$(cat "${CLI_CONFIG_ROOT}/src/installers/${tool}.options.zsh" | grep "${key}" | sed -e 's/^.*#//' )"
       done
     fi
   done
