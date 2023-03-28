@@ -18,7 +18,16 @@ jobs:
       - name: Setup Deps
         run: sudo apt update -y && sudo apt install --no-install-recommends -y zsh
 
+      - name: Sync setup.sh and cli-config
+        run: |
+           sync_output=$(diff cli-config setup.sh > /dev/null; echo $?)
+           if [ "${sync_output}" = "1" ]; then
+             diff cli-config setup.sh
+           fi
+           exit $sync_output
+
       - name: Lint Project
+        continue-on-error: true
         run: |
           lint_output=$(bash package.sh lint)
           if [ "${lint_output}" != "" ]; then

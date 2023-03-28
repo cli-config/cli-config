@@ -52,6 +52,27 @@ I'll try and add support for Linux soon along with an uninstall script :)
 
 \- Saurav!
 
+## customizations
+
+Some tools provide options to use a custom install.
+
+For example, to improve startup performance, the nvm tool provides lazy loading of extra globally installed tools with npm. If you want to have gen-env-template be lazy loaded, you can configure nvm to add it to the list of tools to lazy load.
+
+```bash
+$ ./cli-config configure -p mrsauravsahu -t nvm \
+  --nvm-extra-lazy-commands 'grtu gen-env-template genv'
+
+# The config file will generate the following.
+# Note npm node and npx are always lazy loaded
+$ cat ./current/conf/nvm.conf.sh
+export NVM_DIR="$CLI_CONFIG_ROOT/current/nvm"
+# add nvm to path
+export PATH="$NVM_DIR:$PATH"
+lazyload node npm npx grtu gen-env-template genv -- "source /Users/mrsauravsahu/.cli-config/current/nvm/nvm.sh"
+```
+
+[WIP]: Coming soon, you'll be able to customize the default version of the programming languages tools install.
+
 ## updating cli-config
 
 If you have already setup cli-config. It's also a good idea to keep things updated, or maybe you just want to get the latest goodies. This section will show you how to do that.
