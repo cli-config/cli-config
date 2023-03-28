@@ -1,7 +1,8 @@
 . "${CLI_CONFIG_ROOT}/src/utils/index.zsh"
 . "${CLI_CONFIG_ROOT}/src/installers/${TOOL_LOWERED}.options.zsh"
 
-typeset -A options=(MergeOptions "${TOOL_PREFIX}" "${(@kv)defaultOptions[@]}")
+typeset -A options=()
+MergeOptions "${TOOL_PREFIX}" "defaultOptions" "options"
 
 Install() {
   if [ -d "${TOOL_DIR}" ]; then
@@ -12,7 +13,7 @@ Install() {
 
     dotnetInstallerLocation=$CLI_CONFIG_TOOLS_LOCATION/dotnet-install.sh
     wget -O $dotnetInstallerLocation https://dot.net/v1/dotnet-install.sh
-    bash $dotnetInstallerLocation --install-dir ${TOOL_DIR} --channel Current
+    bash $dotnetInstallerLocation --install-dir ${TOOL_DIR} --channel ${CCOPT_DOTNET_CHANNEL} --architecture ${CCOPT_DOTNET_ARCH}
   fi
 }
 
