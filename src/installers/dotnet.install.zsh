@@ -7,5 +7,5 @@ else
 
   dotnetInstallerLocation=$CLI_CONFIG_TOOLS_LOCATION/dotnet-install.sh
   wget -O $dotnetInstallerLocation https://dot.net/v1/dotnet-install.sh
-  bash $dotnetInstallerLocation --install-dir $CLI_CONFIG_ROOT/current/dotnet --channel Current
+  bash $dotnetInstallerLocation --install-dir $CLI_CONFIG_ROOT/current/dotnet --channel STS
 fi
