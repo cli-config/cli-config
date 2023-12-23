@@ -18,5 +18,5 @@ find ${CLI_CONFIG_ROOT}/current -maxdepth 2 -type f -regex '.*zwc$' | xargs ${XA
 . $CLI_CONFIG_PROGRAMS_CONF
 
 # create a secret.linux.zshrc or secret.darwin.zshrc to run your customizations
-# this file will be ignored in . control
+# this file will be ignored in source control
 . ${CLI_CONFIG_ROOT}/profiles/default/secret.${currentOs}.zshrc 2> /dev/null || true
