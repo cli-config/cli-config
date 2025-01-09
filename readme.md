@@ -1,6 +1,22 @@
 # cli-config
 Helping you setup your CLI experience easily. Some goodies for the ol' terminal.
-![M365Princess theme](./assets/M365Princess.png)
+![M365Princess theme](./assets/star.png)
+
+### Customize to your hearts content with [oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh).
+
+Few examples how you can make the cli your own with oh-my-posh themes.
+
+#### M365Princess
+![M365Princess theme from oh-my-posh](./assets/M365Princess.png)
+
+#### atomic
+![atomic theme from oh-my-posh](./assets/atomic.png)
+
+#### powerlevel10k
+![powerlevel10k theme from oh-my-posh](./assets/powerlevel10k_modern.png)
+
+#### star
+![star theme from oh-my-posh](./assets/star.png)
 
 ## getting started
 
@@ -74,6 +90,8 @@ Once the setup is done, your `~/.zshrc` will be symlinked to the [default profil
 - [M365Princess theme from oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/M365Princess.omp.json)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+
+
 
 ## What's new? 🎉
 - Manage multiple terraform version with [tfenv](https://github.com/tfutils/tfenv).
